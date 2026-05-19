@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfólio - Frosted Glass</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="transition-curtain"></div>
+
+    <div class="glow-bg">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div id="login-modal" class="modal-overlay">
+        <div class="modal-content glass-panel">
+            <h2>Welcome back</h2>
+            <p>Faça login para acessar o Gerenciador</p>
+            
+            <div class="modal-input-group">
+                <input type="password" id="modal-password" placeholder="Insira a senha mestre">
+                <button id="btn-login"><i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+            
+            <button id="btn-close-modal" class="btn-cancel">Voltar ao Portfólio</button>
+        </div>
+    </div>
+
+    <nav class="sidebar glass-panel">
+        <ul class="nav-links">
+            <li class="nav-item active" data-section="home">
+                <a href="#home">
+                    <i class="fa-solid fa-house"></i>
+                    <span class="link-text">Home</span>
+                </a>
+            </li>
+            <li class="nav-item" data-section="servicos">
+                <a href="#servicos">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <span class="link-text">Serviços</span>
+                </a>
+            </li>
+            <li class="nav-item" data-section="projetos">
+                <a href="#projetos">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    <span class="link-text">Projetos</span>
+                </a>
+            </li>
+            <li class="nav-item" data-section="contato">
+                <a href="#contato">
+                    <i class="fa-solid fa-address-book"></i>
+                    <span class="link-text">Contato</span>
+                </a>
+            </li>
+            <li class="nav-item" data-section="admin">
+                <a href="#admin">
+                    <i class="fa-solid fa-square-plus"></i>
+                    <span class="link-text">Admin</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        
+        <section id="home" class="section active">
+            <div class="hero-container">
+                <div class="hero-bio">
+                    <h1 class="nome-destaque">Olá, eu sou Lucas Gabriel</h1>
+                    <h2 class="neon-text" style="font-size: 1.5rem; margin-bottom: 20px;">Desenvolvedor Full Stack & Engenharia de Dados</h2>
+                    
+                    <p style="margin-bottom: 15px;">Sou desenvolvedor de sistemas focado em construir aplicações eficientes e escaláveis. Tenho experiência em sistemas que lidam com grandes volumes de dados — utilizando Python, R e RStudio —, unindo boas práticas de programação à infraestrutura em nuvem com Microsoft Azure.</p>
+                    
+                    <p style="margin-bottom: 25px;">Transito desde a modelagem do banco de dados e arquitetura backend até a prototipagem de interfaces intuitivas no Figma e desenvolvimento multiplataforma com Dart e Flutter. Meu foco é aplicar conceitos de Clean Code e DevOps para entregar soluções completas.</p>
+
+                    <div class="habilidade-tags">
+                        <span class="glass-panel"><i class="fa-brands fa-python" style="color: #3776AB;"></i> Python & R</span>
+                        <span class="glass-panel"><i class="fa-brands fa-js" style="color: #F7DF1E;"></i> JavaScript</span>
+                        <span class="glass-panel"><i class="fa-solid fa-mobile-screen" style="color: #54C5F8;"></i> Flutter & Dart</span>
+                        <span class="glass-panel"><i class="fa-solid fa-database" style="color: #336791;"></i> PostgreSQL</span>
+                        <span class="glass-panel"><i class="fa-brands fa-figma" style="color: #F24E1E;"></i> Figma</span>
+                        <span class="glass-panel"><i class="fa-brands fa-microsoft" style="color: #00A4EF;"></i> Azure & Cloud</span>
+                    </div>
+                </div>
+                <div class="hero-profile">
+                    <div class="profile-circle">
+                        <img src="Foto_perfil_port.jpeg" alt="Minha Foto de Perfil">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicos" class="section">
+            <h2>Meus Serviços</h2>
+            <p style="margin-bottom: 40px; opacity: 0.8; max-width: 600px;">Soluções sob medida para o seu negócio, combinando design moderno e alta performance.</p>
+            
+            <div class="services-grid">
+                <div class="service-card glass-panel">
+                    <i class="fa-solid fa-code service-icon"></i>
+                    <div class="service-info">
+                        <h3>Landing page</h3>
+                        <p>Páginas de alta conversão, responsivas e otimizadas para atrair e capturar clientes.</p>
+                    </div>
+                </div>
+                <div class="service-card glass-panel">
+                    <i class="fa-solid fa-laptop-code service-icon"></i>
+                    <div class="service-info">
+                        <h3>Portfólio Profissional</h3>
+                        <p>Apresentações digitais impactantes e personalizadas para destacar o seu trabalho no mercado.</p>
+                    </div>
+                </div>
+                <div class="service-card glass-panel">
+                    <i class="fa-solid fa-robot service-icon"></i>
+                    <div class="service-info">
+                        <h3>Chat bot WhatsApp / Instagram</h3>
+                        <p>Atendimento automatizado com integração de API para otimizar a comunicação com seus clientes.</p>
+                    </div>
+                </div>
+                <div class="service-card glass-panel">
+                    <i class="fa-solid fa-desktop service-icon"></i>
+                    <div class="service-info">
+                        <h3>Sites com Funcionalidades</h3>
+                        <p>Web App / Minissistema sob medida para gerenciar e escalar o seu negócio.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projetos" class="section">
+            <h2>Meus Sistemas</h2> 
+            <p style="margin-bottom: 30px; opacity: 0.8;">Confira abaixo os sistemas e plataformas que já desenvolvi.</p>
+            <div class="projects-grid" id="dynamic-projects-grid"></div>
+        </section>
+
+        <section id="contato" class="section">
+            <h2 style="margin-bottom: 40px;">Vamos Conversar?</h2>
+            <div class="contact-links-large">
+                <a href="https://www.linkedin.com/in/lucas-gabriel-8a1a8b172" target="_blank" class="contact-item-large glass-panel">
+                    <i class="fa-brands fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://github.com/LucasGabriel0901" target="_blank" class="contact-item-large glass-panel">
+                    <i class="fa-brands fa-github"></i> GitHub
+                </a>
+                <a href="mailto:goisgois31@gmail.com" class="contact-item-large glass-panel">
+                    <i class="fa-solid fa-envelope"></i> E-mail
+                </a>
+                <a href="https://wa.me/5511978730908?text=Olá%20Lucas!%20Vi%20o%20seu%20portfólio%20e%20gostaria%20de%20conversar." target="_blank" class="contact-item-large glass-panel">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                </a>
+            </div>
+        </section>
+        
+        <section id="admin" class="section">
+            <h2>Gerenciador de Sistemas</h2>
+            <p style="margin-bottom: 20px; color: var(--neon-green);">Acesso Autorizado.</p>
+            
+            <div class="admin-layout">
+                <form id="admin-form" class="admin-glass-form glass-panel">
+                    <h3 style="margin-bottom: 20px;">Adicionar Novo</h3>
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-image"></i> Upload da Imagem:</label>
+                        <input type="file" id="proj-img" accept="image/*" required>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-heading"></i> Título do Sistema:</label>
+                        <input type="text" id="proj-title" placeholder="Ex: Progredir ERP" required>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-align-left"></i> Descrição:</label>
+                        <textarea id="proj-desc" rows="3" placeholder="Descreva brevemente as tecnologias..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-link"></i> Link do Projeto:</label>
+                        <input type="url" id="proj-link" placeholder="https://seu-sistema.com" required>
+                    </div>
+                    <button type="submit" class="btn-submit">Publicar Card</button>
+                </form>
+
+                <div class="admin-manage-list glass-panel">
+                    <h3 style="margin-bottom: 20px;">Excluir Projetos Existentes</h3>
+                    <div id="admin-projects-list"></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="whatsapp-widget" class="wa-widget">
+        <div class="wa-button glass-panel">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span class="wa-badge">1</span>
+        </div>
+        <div class="wa-chat-box glass-panel">
+            <div class="wa-header">
+                <div class="wa-avatar">
+                    <img src="Foto_perfil_port.jpeg" alt="Lucas Gabriel">
+                    <span class="wa-status-dot"></span>
+                </div>
+                <div class="wa-chat-info">
+                    <h4>Lucas Gabriel</h4>
+                    <p>Online (Assistente AI)</p>
+                </div>
+                <button id="wa-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="wa-messages" id="wa-messages-container"></div>
+            <div class="wa-footer">
+                <input type="text" id="wa-input" placeholder="Digite uma opção (1, 2 ou 3)...">
+                <button id="wa-send"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
