@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('.section');
     const adminForm = document.getElementById('admin-form');
     
+    // As duas listas diferentes (Pública e Admin)
     const publicProjectsGrid = document.getElementById('dynamic-projects-grid');
     const adminProjectsList = document.getElementById('admin-projects-list');
     
@@ -19,26 +20,56 @@ document.addEventListener('DOMContentLoaded', () => {
     const MASTER_PASSWORD = "Luc@s6575";
     let isAdminAuthenticated = false;
 
+    // State variables for editing
+    let isEditingProject = false;
+    let projectToEditId = null;
+
+    // Projetos iniciais fictícios (Apenas para primeira visualização se quiser)
     const initialProjects = [
         { title: 'Progredir ERP', desc: 'Sistema SaaS completo para gestão.', img: 'https://picsum.photos/400/250?random=1', link: '#' },
         { title: 'Processador NFe', desc: 'Leitor inteligente de Notas Fiscais em nuvem.', img: 'https://picsum.photos/400/250?random=2', link: '#' },
         { title: 'Dashboard Analytics', desc: 'Análise de dados com integration Azure.', img: 'https://picsum.photos/400/250?random=3', link: '#' }
     ];
 
-    // CORREÇÃO DA LIXEIRA: Impede que re-popule se estiver intencionalmente vazio []
+    // INICIALIZAR BANCO DE DADOS LOCAL
     function getProjects() {
         let saved = localStorage.getItem('portfolio_projects');
         if (saved === null) {
-            localStorage.setItem('portfolio_projects', JSON.stringify(initialProjects));
-            return initialProjects;
+            // CORREÇÃO: Se for a PRIMEIRA VEZ, inicia Vazio e não com fictícios
+            localStorage.setItem('portfolio_projects', JSON.stringify([]));
+            return [];
         }
         return JSON.parse(saved);
     }
 
+    // FUNÇÃO QUE GERA O HTML DO STATUS BADGE
+    function getStatusBadgeHtml(status) {
+        let label = "Concluído";
+        let cssClass = "status-concluido";
+
+        switch (status) {
+            case 'desenvolvimento':
+                label = "Em desenvolvimento";
+                cssClass = "status-desenvolvimento";
+                break;
+            case 'teste':
+                label = "Em teste";
+                cssClass = "status-teste";
+                break;
+        }
+
+        return `<div class="status-badge ${cssClass}">${label}</div>`;
+    }
+
+    // 1. RENDERIZA PROJETOS NA PÁGINA PÚBLICA (Sem botões de gestão, com status)
     function renderPublicProjects() {
-        if (!publicProjectsGrid) return;
         publicProjectsGrid.innerHTML = ''; 
         const projects = getProjects();
+
+        if (projects.length === 0) {
+            publicProjectsGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; opacity: 0.6; padding: 40px 0;">Nenhum sistema adicionado ainda.</p>';
+            return;
+        }
 
         projects.forEach((proj) => {
             const card = document.createElement('div');
@@ -50,45 +81,105 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p>${proj.desc}</p>
                     <a href="${proj.link}" target="_blank" class="btn-project">Visitar Sistema</a>
                 </div>
+                ${getStatusBadgeHtml(proj.status)}
             `;
             publicProjectsGrid.appendChild(card);
         });
     }
 
+    // 2. RENDERIZA LISTA NO PAINEL ADMIN (Com botões Editar e Excluir)
     function renderAdminProjects() {
         if (!adminProjectsList) return;
         adminProjectsList.innerHTML = ''; 
         const projects = getProjects();
 
-        projects.forEach((proj, index) => {
+        if (projects.length === 0) {
+            adminProjectsList.innerHTML = '<p style="text-align: center; opacity: 0.6;">Nenhum projeto cadastrado.</p>';
+            return;
+        }
+
+        projects.forEach((proj) => {
             const item = document.createElement('div');
             item.className = 'admin-list-item';
             item.innerHTML = `
                 <div class="admin-list-info">
                     <h4>${proj.title}</h4>
                 </div>
-                <button class="btn-delete" title="Excluir"><i class="fa-solid fa-trash"></i></button>
+                <div class="admin-item-actions">
+                    <button class="btn-action-edit" title="Editar"><i class="fa-solid fa-pencil"></i></button>
+                    <button class="btn-delete" title="Excluir"><i class="fa-solid fa-trash"></i></button>
+                </div>
             `;
             
-            item.querySelector('.btn-delete').addEventListener('click', () => deleteProject(index));
+            // Eventos dos botões baseados no ID único
+            item.querySelector('.btn-action-edit').addEventListener('click', () => prepareEditProject(proj.id));
+            item.querySelector('.btn-delete').addEventListener('click', () => deleteProject(proj.id));
+            
             adminProjectsList.appendChild(item);
         });
     }
 
-    function deleteProject(index) {
-        if(confirm("Tem certeza que deseja excluir este projeto do portfólio?")) {
+    // INICIAR EDIÇÃO DE PROJETO
+    function prepareEditProject(projectId) {
+        const projects = getProjects();
+        const project = projects.find(p => p.id === projectId);
+        
+        if (!project) return;
+
+        isEditingProject = true;
+        projectToEditId = projectId;
+
+        // Preencher o formulário
+        document.getElementById('edit-project-id').value = projectId;
+        document.getElementById('proj-title').value = project.title;
+        document.getElementById('proj-desc').value = project.desc;
+        document.getElementById('proj-link').value = project.link;
+        document.getElementById('proj-status').value = project.status;
+        
+        // Mudar visual do formulário para "Edição"
+        document.getElementById('admin-form-title').innerText = "Editar Projeto";
+        document.getElementById('btn-submit-admin').innerText = "Salvar Alterações";
+        document.getElementById('btn-cancel-edit').style.display = "inline-block";
+        
+        // Rola para o topo do formulário
+        adminForm.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // CANCELAR EDIÇÃO
+    function cancelEditProject() {
+        isEditingProject = false;
+        projectToEditId = null;
+        
+        // Resetar formulário e visual
+        adminForm.reset();
+        document.getElementById('edit-project-id').value = "";
+        document.getElementById('admin-form-title').innerText = "Adicionar Novo";
+        document.getElementById('btn-submit-admin').innerText = "Publicar Card";
+        document.getElementById('btn-cancel-edit').style.display = "none";
+    }
+
+    // EXCLUIR PROJETO
+    function deleteProject(projectId) {
+        if(confirm("Tem certeza que deseja excluir este projeto permanentemente?")) {
             let projects = getProjects();
-            projects.splice(index, 1); 
+            // Filtra removendo o ID correspondente
+            projects = projects.filter(p => p.id !== projectId);
             localStorage.setItem('portfolio_projects', JSON.stringify(projects));
             
+            // Se estava editando esse projeto, cancela a edição
+            if (isEditingProject && projectToEditId === projectId) {
+                cancelEditProject();
+            }
+
             renderPublicProjects(); 
             renderAdminProjects(); 
         }
     }
 
+    // Inicializa a tela pública
     renderPublicProjects();
 
-    // NAVEGAÇÃO COM SISTEMA DE LOGOUT AUTOMÁTICO
+    // NAVEGAÇÃO SPA (Transição Suave)
     navItems.forEach(item => {
         item.addEventListener('click', (e) => {
             e.preventDefault();
@@ -98,11 +189,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetSectionElement = document.getElementById(targetSectionId);
 
             if (targetSectionElement.classList.contains('active')) return;
-
-            // BLOQUEIO REQUISITADO: Desautentica se o usuário sair da aba admin
-            if (targetSectionId !== 'admin') {
-                isAdminAuthenticated = false;
-            }
 
             if (targetSectionId === 'admin' && !isAdminAuthenticated) {
                 pendingNavItem = item;
@@ -166,30 +252,78 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 600); 
     }
 
+    // Helper function to save and refresh
+    function saveAndRefresh(projectsArray, message) {
+        localStorage.setItem('portfolio_projects', JSON.stringify(projectsArray));
+        renderPublicProjects();
+        renderAdminProjects();
+        alert(message);
+    }
+
+    // PROCESSAR FORMULÁRIO (ADICIONAR OU EDITAR)
     if (adminForm) {
+        document.getElementById('btn-cancel-edit').addEventListener('click', cancelEditProject);
+
         adminForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
             const title = document.getElementById('proj-title').value;
             const desc = document.getElementById('proj-desc').value;
             const link = document.getElementById('proj-link').value;
+            const status = document.getElementById('proj-status').value;
             const imgFile = document.getElementById('proj-img').files[0];
 
-            if (imgFile) {
+            let projects = getProjects();
+
+            if (isEditingProject) {
+                // MODO EDIÇÃO
+                const index = projects.findIndex(p => p.id === projectToEditId);
+                if (index === -1) return;
+
+                // Atualiza dados textuais
+                projects[index].title = title;
+                projects[index].desc = desc;
+                projects[index].link = link;
+                projects[index].status = status;
+
+                if (imgFile) {
+                    // Se enviou imagem nova, processa e salva
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        projects[index].img = event.target.result;
+                        saveAndRefresh(projects, '🚀 Projeto atualizado com sucesso!');
+                        cancelEditProject();
+                    };
+                    reader.readAsDataURL(imgFile);
+                } else {
+                    // Se não enviou imagem, mantém a antiga e salva
+                    saveAndRefresh(projects, '🚀 Projeto atualizado com sucesso!');
+                    cancelEditProject();
+                }
+
+            } else {
+                // MODO ADICIONAR NOVO
+                if (!imgFile) {
+                    alert("Por favor, selecione uma imagem para o novo projeto.");
+                    return;
+                }
+
                 const reader = new FileReader();
                 reader.onload = function(event) {
                     const base64Image = event.target.result;
-                    const newProject = { title, desc, img: base64Image, link };
+                    // Cria objeto com ID único baseada no timestamp
+                    const newProject = { 
+                        id: Date.now().toString(),
+                        title, 
+                        desc, 
+                        img: base64Image, 
+                        link,
+                        status 
+                    };
 
-                    let currentProjects = getProjects();
-                    currentProjects.push(newProject);
-                    localStorage.setItem('portfolio_projects', JSON.stringify(currentProjects));
-
-                    renderPublicProjects();
-                    renderAdminProjects();
-                    
+                    projects.push(newProject);
+                    saveAndRefresh(projects, '🚀 Novo sistema publicado com sucesso!');
                     adminForm.reset();
-                    alert('🚀 Sucesso! Novo sistema publicado.');
                 };
                 reader.readAsDataURL(imgFile);
             }

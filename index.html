@@ -162,10 +162,14 @@
             
             <div class="admin-layout">
                 <form id="admin-form" class="admin-glass-form glass-panel">
-                    <h3 style="margin-bottom: 20px;">Adicionar Novo</h3>
+                    <h3 id="admin-form-title" style="margin-bottom: 20px;">Adicionar Novo</h3>
+                    
+                    <input type="hidden" id="edit-project-id" value="">
+
                     <div class="form-group">
                         <label><i class="fa-solid fa-image"></i> Upload da Imagem:</label>
-                        <input type="file" id="proj-img" accept="image/*" required>
+                        <input type="file" id="proj-img" accept="image/*">
+                        <small style="opacity: 0.6; font-size: 0.8rem; margin-top: 4px;">Opcional ao editar.</small>
                     </div>
                     <div class="form-group">
                         <label><i class="fa-solid fa-heading"></i> Título do Sistema:</label>
@@ -179,11 +183,24 @@
                         <label><i class="fa-solid fa-link"></i> Link do Projeto:</label>
                         <input type="url" id="proj-link" placeholder="https://seu-sistema.com" required>
                     </div>
-                    <button type="submit" class="btn-submit">Publicar Card</button>
+                    
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-signal"></i> Status Atual:</label>
+                        <select id="proj-status" required>
+                            <option value="desenvolvimento">Em desenvolvimento</option>
+                            <option value="concluido" selected>Concluído</option>
+                            <option value="teste">Em teste</option>
+                        </select>
+                    </div>
+
+                    <div class="admin-form-buttons" style="display: flex; gap: 10px; margin-top: 20px;">
+                        <button type="submit" id="btn-submit-admin" class="btn-submit" style="flex: 2;">Publicar Card</button>
+                        <button type="button" id="btn-cancel-edit" class="btn-cancel" style="display: none; flex: 1; margin: 0; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">Cancelar</button>
+                    </div>
                 </form>
 
                 <div class="admin-manage-list glass-panel">
-                    <h3 style="margin-bottom: 20px;">Excluir Projetos Existentes</h3>
+                    <h3 style="margin-bottom: 20px;">Gerenciar Projetos</h3>
                     <div id="admin-projects-list"></div>
                 </div>
             </div>
