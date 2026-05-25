@@ -144,10 +144,12 @@ body {
 .service-icon { font-size: 2rem; color: var(--neon-green); }
 .service-info h3 { font-size: 1.1rem; margin-bottom: 5px; color: #fff; }
 
-.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 0 10px; }
-.project-card { border-radius: 20px; overflow: hidden; transition: 0.3s; position: relative; width: 90%; margin: 0 auto; }
+/* CORREÇÃO DO CARD: auto-fill e object-fit: contain */
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; padding: 0 10px; }
+.project-card { border-radius: 20px; overflow: hidden; transition: 0.3s; position: relative; width: 100%; margin: 0 auto; }
 .project-card:hover { transform: translateY(-5px); border-color: var(--neon-green); box-shadow: 0 10px 30px rgba(0,255,102,0.15); }
-.project-card img { width: 100%; height: 200px; object-fit: cover; }
+.project-card img { width: 100%; height: auto; max-height: 250px; object-fit: contain; object-position: center top; background: rgba(0,0,0,0.3); border-bottom: 1px solid rgba(255,255,255,0.05); }
+
 .card-content { padding: 20px; padding-bottom: 60px; }
 .card-content h3 { margin-bottom: 10px; color: #fff; }
 .card-content p { font-size: 0.95rem; color: #ccc; margin-bottom: 20px; }
@@ -237,34 +239,31 @@ body {
 }
 
 @media (max-width: 768px) {
-    /* O SEGREDO ESTÁ AQUI: Transformando o menu em uma Pílula Flutuante */
     .sidebar {
         top: auto; 
-        bottom: 25px; /* Descola do fundo da tela */
+        bottom: 25px; 
         left: 50%;
-        transform: translateX(-50%); /* Centraliza no meio da tela */
+        transform: translateX(-50%); 
         width: 90%; 
-        max-width: 400px; /* Não deixa ficar enorme em tablets */
+        max-width: 400px; 
         height: 70px;
-        border-radius: 35px; /* Arredonda totalmente as bordas (Pílula) */
+        border-radius: 35px; 
         flex-direction: row;
         padding: 0 15px;
         justify-content: space-between;
-        border: 1px solid rgba(255, 255, 255, 0.15); /* Borda de vidro sutil */
-        background: rgba(15, 15, 15, 0.7); /* Fundo escuro transparente */
+        border: 1px solid rgba(255, 255, 255, 0.15); 
+        background: rgba(15, 15, 15, 0.7); 
         backdrop-filter: blur(25px);
         -webkit-backdrop-filter: blur(25px);
         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), 0 0 15px rgba(0, 255, 102, 0.05);
         z-index: 1000;
     }
     
-    /* Impede o menu de crescer ao passar o dedo no celular */
     .sidebar:hover { width: 90%; padding-left: 15px; align-items: center; }
 
     .nav-links { flex-direction: row; margin-top: 0; justify-content: space-around; align-items: center; width: 100%; }
     .nav-links li:last-child { margin-top: 0; margin-bottom: 0; }
 
-    /* Ajuste dos botões para caberem redondinhos dentro da pílula */
     .nav-item { width: 50px; height: 50px; margin: 0; flex: none; }
     .sidebar:hover .nav-item { width: 50px; }
 
@@ -272,36 +271,17 @@ body {
     .sidebar:hover .nav-item a { justify-content: center; padding-left: 0; }
 
     .nav-item i { font-size: 20px; margin-bottom: 0; }
-    .link-text { display: none; } /* Oculta os textos para ficar limpo */
+    .link-text { display: none; }
 
-    /* Garante que o conteúdo role até o final sem ficar atrás da pílula */
     .main-content { margin-left: 0; padding: 20px; width: 100%; padding-bottom: 120px; }
     .section { padding: 40px 0; }
     .hero-profile .profile-circle { width: 250px; height: 250px; }
     
-    /* Ajuste dos Cards que já tínhamos feito */
-    .services-grid, .projects-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 0;
-    }
-    
-    .service-card, .project-card {
-        width: 95%;
-        margin: 0 auto; 
-    }
+    .services-grid, .projects-grid { grid-template-columns: 1fr; gap: 20px; padding: 0; }
+    .service-card, .project-card { width: 95%; margin: 0 auto; }
 
     .contact-item-large { width: 100%; justify-content: center; }
     
-    /* Ajusta o Bot do WhatsApp para flutuar ACIMA da pílula do menu */
-    .wa-widget {
-        bottom: 110px; /* Fica acima da pílula */
-        right: 20px;
-    }
-    
-    .wa-chat-box {
-        width: 310px;
-        right: -10px;
-        bottom: 75px; /* Distância do botão do WhatsApp */
-    }
+    .wa-widget { bottom: 110px; right: 20px; }
+    .wa-chat-box { width: 310px; right: -10px; bottom: 75px; }
 }

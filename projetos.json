@@ -1,0 +1,30 @@
+[
+  {
+      "id": "2",
+      "title": "Dr. Sorriso | Landing Page Odontológica",
+      "desc": "Página de aterrissagem (Single Page) desenvolvida com foco em alta conversão e experiência do usuário. O projeto simula a demanda real de uma clínica moderna, utilizando arquitetura limpa com separação de responsabilidades (HTML, CSS, JS).",
+      "funcionalidades": [
+          "Sistema de Agendamento: Captura de dados no frontend com formatação dinâmica de mensagens para o WhatsApp.",
+          "Animações Otimizadas: Uso da API IntersectionObserver para disparar efeitos fade-in conforme o scroll.",
+          "UI/UX Moderno: Aplicação de paleta vibrante, Glassmorphism e tipografia legível.",
+          "Responsividade: Layout totalmente adaptável a qualquer dispositivo (Mobile, Tablet e Desktop)."
+      ],
+      "img": "logo_sorrisos.png",
+      "link": "https://lucasgabriel0901.github.io/Site_dentista_sorriso/",
+      "status": "concluido"
+  },
+  {
+      "id": "3",
+      "title": "Al Capone: Sistema de Gestão e Agendamento Inteligente",
+      "desc": "Plataforma Full Stack para automação de agendas e controle de disponibilidade em tempo real.",
+      "funcionalidades": ["Aplicação web desenvolvida de ponta a ponta para otimizar o fluxo de atendimento comercial.",
+
+          "Gerenciamento de Agendas: Interface intuitiva para criar, editar e visualizar compromissos, com validação automática de conflitos de horário.",
+          "Controle de Disponibilidade: Sistema inteligente que bloqueia horários indisponíveis com base em regras predefinidas, garantindo uma gestão eficiente dos recursos humanos.",
+          "Segurança Robusta: Implementação de autenticação segura com hash de senhas e proteção contra ataques comuns, assegurando a integridade dos dados dos usuários."
+      ],
+      "img": "Alcapone.jpeg",
+      "link": "https://lucasgabriel0901.github.io/Site_dentista_",
+      "status": "em Teste"
+  }
+]

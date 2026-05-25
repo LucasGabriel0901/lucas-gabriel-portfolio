@@ -1,12 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const navItems = document.querySelectorAll('.nav-item');
     const sections = document.querySelectorAll('.section');
-    const adminForm = document.getElementById('admin-form');
-    
-    // As duas listas diferentes (Pública e Admin)
-    const publicProjectsGrid = document.getElementById('dynamic-projects-grid');
-    const adminProjectsList = document.getElementById('admin-projects-list');
-    
     const curtain = document.querySelector('.transition-curtain');
     let isAnimating = false;
 
@@ -20,29 +14,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const MASTER_PASSWORD = "Luc@s6575";
     let isAdminAuthenticated = false;
 
-    // State variables for editing
-    let isEditingProject = false;
-    let projectToEditId = null;
-
-    // Projetos iniciais fictícios (Apenas para primeira visualização se quiser)
-    const initialProjects = [
-        { title: 'Progredir ERP', desc: 'Sistema SaaS completo para gestão.', img: 'https://picsum.photos/400/250?random=1', link: '#' },
-        { title: 'Processador NFe', desc: 'Leitor inteligente de Notas Fiscais em nuvem.', img: 'https://picsum.photos/400/250?random=2', link: '#' },
-        { title: 'Dashboard Analytics', desc: 'Análise de dados com integration Azure.', img: 'https://picsum.photos/400/250?random=3', link: '#' }
-    ];
-
-    // INICIALIZAR BANCO DE DADOS LOCAL
-    function getProjects() {
-        let saved = localStorage.getItem('portfolio_projects');
-        if (saved === null) {
-            // CORREÇÃO: Se for a PRIMEIRA VEZ, inicia Vazio e não com fictícios
-            localStorage.setItem('portfolio_projects', JSON.stringify([]));
+    // ======================================================================
+    // 1. BUSCA OS PROJETOS DIRETO DO ARQUIVO projetos.json
+    // ======================================================================
+    async function fetchProjects() {
+        try {
+            const response = await fetch('projetos.json?' + new Date().getTime());
+            if (!response.ok) throw new Error('Arquivo JSON não encontrado');
+            return await response.json();
+        } catch (error) {
+            console.error('Erro ao carregar projetos:', error);
             return [];
         }
-        return JSON.parse(saved);
     }
 
-    // FUNÇÃO QUE GERA O HTML DO STATUS BADGE
     function getStatusBadgeHtml(status) {
         let label = "Concluído";
         let cssClass = "status-concluido";
@@ -61,24 +46,48 @@ document.addEventListener('DOMContentLoaded', () => {
         return `<div class="status-badge ${cssClass}">${label}</div>`;
     }
 
-    // 1. RENDERIZA PROJETOS NA PÁGINA PÚBLICA (Sem botões de gestão, com status)
-    function renderPublicProjects() {
-        publicProjectsGrid.innerHTML = ''; 
-        const projects = getProjects();
+    // RENDERIZA NA TELA PÚBLICA
+    async function renderPublicProjects() {
+        const publicProjectsGrid = document.getElementById('dynamic-projects-grid');
+        if (!publicProjectsGrid) return;
 
-        if (projects.length === 0) {
-            publicProjectsGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; opacity: 0.6; padding: 40px 0;">Nenhum sistema adicionado ainda.</p>';
+        publicProjectsGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--neon-green);">Carregando projetos da nuvem...</p>';
+
+        let projects = await fetchProjects();
+        publicProjectsGrid.innerHTML = ''; 
+
+        // TRAVA DE SEGURANÇA para o JSON
+        if (projects && !Array.isArray(projects) && projects.title) {
+            projects = [projects];
+        }
+
+        if (!projects || projects.length === 0) {
+            publicProjectsGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; opacity: 0.6; padding: 40px 0;">Nenhum sistema adicionado no arquivo projetos.json ainda.</p>';
             return;
         }
 
         projects.forEach((proj) => {
             const card = document.createElement('div');
             card.className = 'project-card glass-panel';
+            
+            // Monta a lista de funcionalidades se ela existir no JSON
+            let funcionalidadesHtml = '';
+            if (proj.funcionalidades && Array.isArray(proj.funcionalidades) && proj.funcionalidades.length > 0) {
+                funcionalidadesHtml = '<ul style="margin-bottom: 20px; padding-left: 20px; font-size: 0.85rem; color: #aaa; line-height: 1.5;">';
+                proj.funcionalidades.forEach(func => {
+                    funcionalidadesHtml += `<li style="margin-bottom: 6px;">${func}</li>`;
+                });
+                funcionalidadesHtml += '</ul>';
+            }
+
             card.innerHTML = `
-                <img src="${proj.img}" alt="${proj.title}">
+                <img src="${proj.img}" alt="${proj.title}" onerror="this.src='Foto_perfil_port.jpeg'">
                 <div class="card-content">
                     <h3>${proj.title}</h3>
-                    <p>${proj.desc}</p>
+                    <p style="margin-bottom: 15px;">${proj.desc}</p>
+                    
+                    ${funcionalidadesHtml}
+                    
                     <a href="${proj.link}" target="_blank" class="btn-project">Visitar Sistema</a>
                 </div>
                 ${getStatusBadgeHtml(proj.status)}
@@ -87,99 +96,41 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. RENDERIZA LISTA NO PAINEL ADMIN (Com botões Editar e Excluir)
-    function renderAdminProjects() {
-        if (!adminProjectsList) return;
-        adminProjectsList.innerHTML = ''; 
-        const projects = getProjects();
-
-        if (projects.length === 0) {
-            adminProjectsList.innerHTML = '<p style="text-align: center; opacity: 0.6;">Nenhum projeto cadastrado.</p>';
-            return;
-        }
-
-        projects.forEach((proj) => {
-            const item = document.createElement('div');
-            item.className = 'admin-list-item';
-            item.innerHTML = `
-                <div class="admin-list-info">
-                    <h4>${proj.title}</h4>
-                </div>
-                <div class="admin-item-actions">
-                    <button class="btn-action-edit" title="Editar"><i class="fa-solid fa-pencil"></i></button>
-                    <button class="btn-delete" title="Excluir"><i class="fa-solid fa-trash"></i></button>
-                </div>
-            `;
-            
-            // Eventos dos botões baseados no ID único
-            item.querySelector('.btn-action-edit').addEventListener('click', () => prepareEditProject(proj.id));
-            item.querySelector('.btn-delete').addEventListener('click', () => deleteProject(proj.id));
-            
-            adminProjectsList.appendChild(item);
-        });
-    }
-
-    // INICIAR EDIÇÃO DE PROJETO
-    function prepareEditProject(projectId) {
-        const projects = getProjects();
-        const project = projects.find(p => p.id === projectId);
-        
-        if (!project) return;
-
-        isEditingProject = true;
-        projectToEditId = projectId;
-
-        // Preencher o formulário
-        document.getElementById('edit-project-id').value = projectId;
-        document.getElementById('proj-title').value = project.title;
-        document.getElementById('proj-desc').value = project.desc;
-        document.getElementById('proj-link').value = project.link;
-        document.getElementById('proj-status').value = project.status;
-        
-        // Mudar visual do formulário para "Edição"
-        document.getElementById('admin-form-title').innerText = "Editar Projeto";
-        document.getElementById('btn-submit-admin').innerText = "Salvar Alterações";
-        document.getElementById('btn-cancel-edit').style.display = "inline-block";
-        
-        // Rola para o topo do formulário
-        adminForm.scrollIntoView({ behavior: 'smooth' });
-    }
-
-    // CANCELAR EDIÇÃO
-    function cancelEditProject() {
-        isEditingProject = false;
-        projectToEditId = null;
-        
-        // Resetar formulário e visual
-        adminForm.reset();
-        document.getElementById('edit-project-id').value = "";
-        document.getElementById('admin-form-title').innerText = "Adicionar Novo";
-        document.getElementById('btn-submit-admin').innerText = "Publicar Card";
-        document.getElementById('btn-cancel-edit').style.display = "none";
-    }
-
-    // EXCLUIR PROJETO
-    function deleteProject(projectId) {
-        if(confirm("Tem certeza que deseja excluir este projeto permanentemente?")) {
-            let projects = getProjects();
-            // Filtra removendo o ID correspondente
-            projects = projects.filter(p => p.id !== projectId);
-            localStorage.setItem('portfolio_projects', JSON.stringify(projects));
-            
-            // Se estava editando esse projeto, cancela a edição
-            if (isEditingProject && projectToEditId === projectId) {
-                cancelEditProject();
-            }
-
-            renderPublicProjects(); 
-            renderAdminProjects(); 
-        }
-    }
-
-    // Inicializa a tela pública
     renderPublicProjects();
 
-    // NAVEGAÇÃO SPA (Transição Suave)
+    // BLOQUEIA O FORMULÁRIO ANTIGO E AVISA PARA EDITAR NO CÓDIGO
+    function renderAdminProjects() {
+        const adminProjectsList = document.getElementById('admin-projects-list');
+        if (!adminProjectsList) return;
+        
+        adminProjectsList.innerHTML = `
+            <div style="background: rgba(255, 165, 0, 0.1); border: 1px solid rgba(255, 165, 0, 0.3); padding: 25px; border-radius: 15px; text-align: center;">
+                <i class="fa-solid fa-code" style="font-size: 2.5rem; color: #ff9f43; margin-bottom: 15px;"></i>
+                <h4 style="color: #ff9f43; margin-bottom: 10px; font-size: 1.2rem;">Modo de Edição Direto no Código</h4>
+                <p style="font-size: 0.95rem; color: #ddd; line-height: 1.6;">
+                    Como o portfólio está no GitHub Pages, os projetos são gerenciados diretamente nos arquivos para que todos possam ver.<br><br>
+                    Para gerenciar, edite o arquivo <code>projetos.json</code>.
+                </p>
+            </div>
+        `;
+
+        const adminForm = document.getElementById('admin-form');
+        if(adminForm) {
+            const inputs = adminForm.querySelectorAll('input, textarea, select');
+            inputs.forEach(i => i.disabled = true);
+            const btn = document.getElementById('btn-submit-admin');
+            if(btn) {
+                btn.innerText = "Edição bloqueada: Use o projetos.json";
+                btn.style.background = "#333";
+                btn.style.color = "#888";
+                btn.style.cursor = "not-allowed";
+            }
+        }
+    }
+
+    // ======================================================================
+    // 2. NAVEGAÇÃO E MODAL DE LOGIN
+    // ======================================================================
     navItems.forEach(item => {
         item.addEventListener('click', (e) => {
             e.preventDefault();
@@ -189,6 +140,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetSectionElement = document.getElementById(targetSectionId);
 
             if (targetSectionElement.classList.contains('active')) return;
+
+            if (targetSectionId !== 'admin') {
+                isAdminAuthenticated = false;
+            }
 
             if (targetSectionId === 'admin' && !isAdminAuthenticated) {
                 pendingNavItem = item;
@@ -252,87 +207,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 600); 
     }
 
-    // Helper function to save and refresh
-    function saveAndRefresh(projectsArray, message) {
-        localStorage.setItem('portfolio_projects', JSON.stringify(projectsArray));
-        renderPublicProjects();
-        renderAdminProjects();
-        alert(message);
-    }
-
-    // PROCESSAR FORMULÁRIO (ADICIONAR OU EDITAR)
-    if (adminForm) {
-        document.getElementById('btn-cancel-edit').addEventListener('click', cancelEditProject);
-
-        adminForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            const title = document.getElementById('proj-title').value;
-            const desc = document.getElementById('proj-desc').value;
-            const link = document.getElementById('proj-link').value;
-            const status = document.getElementById('proj-status').value;
-            const imgFile = document.getElementById('proj-img').files[0];
-
-            let projects = getProjects();
-
-            if (isEditingProject) {
-                // MODO EDIÇÃO
-                const index = projects.findIndex(p => p.id === projectToEditId);
-                if (index === -1) return;
-
-                // Atualiza dados textuais
-                projects[index].title = title;
-                projects[index].desc = desc;
-                projects[index].link = link;
-                projects[index].status = status;
-
-                if (imgFile) {
-                    // Se enviou imagem nova, processa e salva
-                    const reader = new FileReader();
-                    reader.onload = function(event) {
-                        projects[index].img = event.target.result;
-                        saveAndRefresh(projects, '🚀 Projeto atualizado com sucesso!');
-                        cancelEditProject();
-                    };
-                    reader.readAsDataURL(imgFile);
-                } else {
-                    // Se não enviou imagem, mantém a antiga e salva
-                    saveAndRefresh(projects, '🚀 Projeto atualizado com sucesso!');
-                    cancelEditProject();
-                }
-
-            } else {
-                // MODO ADICIONAR NOVO
-                if (!imgFile) {
-                    alert("Por favor, selecione uma imagem para o novo projeto.");
-                    return;
-                }
-
-                const reader = new FileReader();
-                reader.onload = function(event) {
-                    const base64Image = event.target.result;
-                    // Cria objeto com ID único baseada no timestamp
-                    const newProject = { 
-                        id: Date.now().toString(),
-                        title, 
-                        desc, 
-                        img: base64Image, 
-                        link,
-                        status 
-                    };
-
-                    projects.push(newProject);
-                    saveAndRefresh(projects, '🚀 Novo sistema publicado com sucesso!');
-                    adminForm.reset();
-                };
-                reader.readAsDataURL(imgFile);
-            }
-        });
-    }
-
-    // ==========================================
-    // LÓGICA DO INTERATIVA DO CHATBOT WHATSAPP
-    // ==========================================
+    // ======================================================================
+    // 3. WIDGET CHATBOT WHATSAPP
+    // ======================================================================
     const waWidget = document.getElementById('whatsapp-widget');
     const waButton = document.querySelector('.wa-button');
     const waClose = document.getElementById('wa-close');
