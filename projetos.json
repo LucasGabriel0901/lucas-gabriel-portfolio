@@ -1,6 +1,6 @@
 [
   {
-      "id": "2",
+      "id": "1",
       "title": "Dr. Sorriso | Landing Page Odontológica",
       "desc": "Página de aterrissagem desenvolvida com foco em alta conversão.",
       "funcionalidades": [
@@ -13,7 +13,7 @@
       "status": "concluido"
   },
   {
-      "id": "3",
+      "id": "2",
       "title": "Al Capone: Gestão e Agendamento",
       "desc": "Plataforma Full Stack para automação de agendas e controle de disponibilidade.",
       "funcionalidades": [
@@ -24,5 +24,19 @@
       "img": "Alcapone.jpeg",
       "link": "https://github.com/LucasGabriel0901/Site_dentista_sorriso",
       "status": "teste"
-  }
+  },
+ {
+      "id": "3",
+      "title": "Denken | Processos e Gestão",
+      "desc": "Landing page de alta conversão para consultoria de food service, focada em captação de leads.",
+      "funcionalidades": [
+        "Chatbot interativo em Modal com opções de autoatendimento.",
+        "Integração direta com WhatsApp para agendamentos.",
+        "Layout responsivo com efeitos avançados de CSS (mask-image).",
+        "FAQ dinâmico em formato acordeão utilizando Vanilla JS."
+      ],
+      "img": "denken.png",
+      "link": "https://lucasgabriel0901.github.io/projeto_denken/",
+      "status": "concluido"
+    }
 ]

@@ -3,65 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Portfólio - Frosted Glass</title>
+    <title>Lucas Gabriel | Desenvolvedor Full Stack</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="transition-curtain"></div>
-
     <div class="glow-bg">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
+        <div class="blob blob-orange"></div>
+        <div class="blob blob-pink"></div>
+        <div class="blob blob-purple"></div>
     </div>
 
-    <div id="login-modal" class="modal-overlay">
-        <div class="modal-content glass-panel">
-            <h2>Welcome back</h2>
-            <p>Faça login para acessar o Gerenciador</p>
-            
-            <div class="modal-input-group">
-                <input type="password" id="modal-password" placeholder="Insira a senha mestre">
-                <button id="btn-login"><i class="fa-solid fa-arrow-right"></i></button>
-            </div>
-            
-            <button id="btn-close-modal" class="btn-cancel">Voltar ao Portfólio</button>
-        </div>
-    </div>
-
-    <nav class="sidebar glass-panel">
+    <nav class="navbar reveal">
         <ul class="nav-links">
-            <li class="nav-item active" data-section="home">
+            <li>
                 <a href="#home">
-                    <i class="fa-solid fa-house"></i>
-                    <span class="link-text">Home</span>
+                    <i class="fa-solid fa-house nav-icon"></i>
+                    <span class="nav-text">Início</span>
                 </a>
             </li>
-            <li class="nav-item" data-section="servicos">
+            <li>
                 <a href="#servicos">
-                    <i class="fa-solid fa-briefcase"></i>
-                    <span class="link-text">Serviços</span>
+                    <i class="fa-solid fa-layer-group nav-icon"></i>
+                    <span class="nav-text">Serviços</span>
                 </a>
             </li>
-            <li class="nav-item" data-section="projetos">
+            <li>
                 <a href="#projetos">
-                    <i class="fa-solid fa-chart-simple"></i>
-                    <span class="link-text">Projetos</span>
+                    <i class="fa-solid fa-code nav-icon"></i>
+                    <span class="nav-text">Sistemas</span>
                 </a>
             </li>
-            <li class="nav-item" data-section="contato">
+            <li>
                 <a href="#contato">
-                    <i class="fa-solid fa-address-book"></i>
-                    <span class="link-text">Contato</span>
-                </a>
-            </li>
-            <li class="nav-item" data-section="admin">
-                <a href="#admin">
-                    <i class="fa-solid fa-square-plus"></i>
-                    <span class="link-text">Admin</span>
+                    <i class="fa-solid fa-paper-plane nav-icon"></i>
+                    <span class="nav-text">Contato</span>
                 </a>
             </li>
         </ul>
@@ -69,126 +47,108 @@
 
     <main class="main-content">
         
-        <section id="home" class="section active">
+        <section id="home" class="section">
             <div class="hero-container">
-                <div class="hero-bio">
-                    <h1 class="nome-destaque">Olá, eu sou Lucas Gabriel</h1>
-                    <h2 class="neon-text" style="font-size: 1.5rem; margin-bottom: 20px;">Desenvolvedor Full Stack & Engenharia de Dados</h2>
+                <div class="hero-bio reveal delay-1">
+                    <h1 class="nome-destaque">Engenharia de<br>Software & Dados.</h1>
+                    <p class="hero-desc">Sou focado em construir aplicações eficientes e escaláveis. Transformo problemas complexos em <span class="highlight-text">soluções simples e modernas</span>, unindo código limpo à infraestrutura robusta em nuvem.</p>
                     
-                    <p style="margin-bottom: 15px;">Sou desenvolvedor de sistemas focado em construir aplicações eficientes e escaláveis. Tenho experiência em sistemas que lidam com grandes volumes de dados — utilizando Python, R e RStudio —, unindo boas práticas de programação à infraestrutura em nuvem com Microsoft Azure.</p>
-                    
-                    <p style="margin-bottom: 25px;">Transito desde a modelagem do banco de dados e arquitetura backend até a prototipagem de interfaces intuitivas no Figma e desenvolvimento multiplataforma com Dart e Flutter. Meu foco é aplicar conceitos de Clean Code e DevOps para entregar soluções completas.</p>
+                    <div class="hero-buttons">
+                        <a href="#projetos" class="btn-primary">Ver Projetos</a>
+                        <a href="#contato" class="btn-secondary">Contato</a>
+                    </div>
 
                     <div class="habilidade-tags">
-                        <span class="glass-panel"><i class="fa-brands fa-python" style="color: #3776AB;"></i> Python & R</span>
-                        <span class="glass-panel"><i class="fa-brands fa-js" style="color: #F7DF1E;"></i> JavaScript</span>
-                        <span class="glass-panel"><i class="fa-solid fa-mobile-screen" style="color: #54C5F8;"></i> Flutter & Dart</span>
-                        <span class="glass-panel"><i class="fa-solid fa-database" style="color: #336791;"></i> PostgreSQL</span>
-                        <span class="glass-panel"><i class="fa-brands fa-figma" style="color: #F24E1E;"></i> Figma</span>
-                        <span class="glass-panel"><i class="fa-brands fa-microsoft" style="color: #00A4EF;"></i> Azure & Cloud</span>
+                        <span class="solid-tag"><i class="fa-brands fa-python"></i> Python & R</span>
+                        <span class="solid-tag"><i class="fa-brands fa-js"></i> JavaScript</span>
+                        <span class="solid-tag"><i class="fa-solid fa-mobile-screen"></i> Dart & Flutter</span>
+                        <span class="solid-tag"><i class="fa-solid fa-database"></i> PostgreSQL</span>
+                        <span class="solid-tag"><i class="fa-brands fa-microsoft"></i> Azure</span>
                     </div>
                 </div>
-                <div class="hero-profile">
+                
+                <div class="hero-profile reveal delay-2">
+                    <div class="profile-glow"></div>
                     <div class="profile-circle">
-                        <img src="Foto_perfil_port.jpeg" alt="Minha Foto de Perfil">
+                        <img src="Foto_perfil_port.jpeg" alt="Lucas Gabriel">
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="servicos" class="section">
-            <h2>Meus Serviços</h2>
-            <p style="margin-bottom: 40px; opacity: 0.8; max-width: 600px;">Soluções sob medida para o seu negócio, combinando design moderno e alta performance.</p>
+            <div class="section-header reveal">
+                <h2 class="section-title">Minha Especialização</h2>
+                <p class="section-subtitle">O que eu posso construir para o seu negócio.</p>
+            </div>
             
             <div class="services-grid">
-                <div class="service-card glass-panel">
-                    <i class="fa-solid fa-code service-icon"></i>
-                    <div class="service-info">
-                        <h3>Landing page</h3>
-                        <p>Páginas de alta conversão, responsivas e otimizadas para atrair e capturar clientes.</p>
-                    </div>
+                <div class="service-card reveal delay-1">
+                    <div class="icon-box"><i class="fa-solid fa-rocket"></i></div>
+                    <h3>Landing Pages</h3>
+                    <p>Páginas de alta conversão, responsivas e otimizadas para focar no crescimento do seu negócio.</p>
                 </div>
-                <div class="service-card glass-panel">
-                    <i class="fa-solid fa-laptop-code service-icon"></i>
-                    <div class="service-info">
-                        <h3>Portfólio Profissional</h3>
-                        <p>Apresentações digitais impactantes e personalizadas para destacar o seu trabalho no mercado.</p>
-                    </div>
+                <div class="service-card reveal delay-2">
+                    <div class="icon-box"><i class="fa-solid fa-laptop-code"></i></div>
+                    <h3>Portfólios Web</h3>
+                    <p>Interfaces sofisticadas e modernas, com tipografia forte e layouts ousados.</p>
                 </div>
-                <div class="service-card glass-panel">
-                    <i class="fa-solid fa-robot service-icon"></i>
-                    <div class="service-info">
-                        <h3>Chat bot WhatsApp / Instagram</h3>
-                        <p>Atendimento automatizado com integração de API para otimizar a comunicação com seus clientes.</p>
-                    </div>
+                <div class="service-card reveal delay-3">
+                    <div class="icon-box"><i class="fa-brands fa-whatsapp"></i></div>
+                    <h3>Chatbots e IA</h3>
+                    <p>Automação de atendimento via API para garantir escala na sua comunicação.</p>
                 </div>
-                <div class="service-card glass-panel">
-                    <i class="fa-solid fa-desktop service-icon"></i>
-                    <div class="service-info">
-                        <h3>Sites com Funcionalidades</h3>
-                        <p>Web App / Minissistema sob medida para gerenciar e escalar o seu negócio.</p>
-                    </div>
+                <div class="service-card reveal delay-4">
+                    <div class="icon-box"><i class="fa-solid fa-server"></i></div>
+                    <h3>Sistemas SaaS</h3>
+                    <p>Aplicações complexas, painéis de gestão e banco de dados altamente seguros.</p>
                 </div>
             </div>
         </section>
 
         <section id="projetos" class="section">
-            <h2>Meus Sistemas</h2> 
-            <p style="margin-bottom: 30px; opacity: 0.8;">Confira abaixo os sistemas e plataformas que já desenvolvi.</p>
-            <div class="projects-grid" id="dynamic-projects-grid"></div>
+            <div class="section-header reveal">
+                <h2 class="section-title">Projetos em Destaque</h2> 
+                <p class="section-subtitle">Sistemas desenvolvidos com arquitetura limpa e UI moderna.</p>
+            </div>
+            
+            <div class="projects-grid" id="dynamic-projects-grid">
+                </div>
         </section>
 
         <section id="contato" class="section">
-            <h2 style="margin-bottom: 40px;">Vamos Conversar?</h2>
+            <div class="section-header text-center reveal">
+                <h2 class="section-title">Vamos Trabalhar Juntos?</h2>
+                <p class="section-subtitle">Estou disponível para novos projetos e conexões.</p>
+            </div>
+            
             <div class="contact-links-large">
-                <a href="https://www.linkedin.com/in/lucas-gabriel-8a1a8b172" target="_blank" class="contact-item-large glass-panel">
-                    <i class="fa-brands fa-linkedin"></i> LinkedIn
+                <a href="https://www.linkedin.com/in/lucas-gabriel-8a1a8b172" target="_blank" class="contact-item reveal delay-1">
+                    <i class="fa-brands fa-linkedin"></i>
+                    <span>LinkedIn</span>
                 </a>
-                <a href="https://github.com/LucasGabriel0901" target="_blank" class="contact-item-large glass-panel">
-                    <i class="fa-brands fa-github"></i> GitHub
+                <a href="https://github.com/LucasGabriel0901" target="_blank" class="contact-item reveal delay-2">
+                    <i class="fa-brands fa-github"></i>
+                    <span>GitHub</span>
                 </a>
-                <a href="mailto:goisgois31@gmail.com" class="contact-item-large glass-panel">
-                    <i class="fa-solid fa-envelope"></i> E-mail
+                <a href="mailto:goisgois31@gmail.com" class="contact-item reveal delay-3">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>E-mail</span>
                 </a>
-                <a href="https://wa.me/5511978730908?text=Olá%20Lucas!%20Vi%20o%20seu%20portfólio%20e%20gostaria%20de%20conversar." target="_blank" class="contact-item-large glass-panel">
-                    <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                <a href="https://wa.me/5511978730908?text=Olá%20Lucas!%20Vi%20o%20seu%20portfólio%20e%20gostaria%20de%20conversar." target="_blank" class="contact-item highlight reveal delay-4">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <span>WhatsApp</span>
                 </a>
             </div>
         </section>
         
-        <section id="admin" class="section">
-            <h2>Gerenciador de Sistemas</h2>
-            <p style="margin-bottom: 20px; color: var(--neon-green);">Acesso Autorizado.</p>
-            
-            <div class="admin-layout" style="display: flex; justify-content: center; width: 100%;">
-                <div class="glass-panel" style="padding: 40px; border-radius: 20px; text-align: center; max-width: 600px; width: 100%;">
-                    <i class="fa-solid fa-code" style="font-size: 3rem; color: var(--neon-green); margin-bottom: 20px;"></i>
-                    <h3 style="margin-bottom: 15px; font-size: 1.5rem;">Modo de Edição Direto no Código</h3>
-                    <p style="color: #ccc; line-height: 1.6; margin-bottom: 20px;">
-                        Como o portfólio está hospedado de forma estática no GitHub Pages, os projetos são gerenciados diretamente nos arquivos.
-                    </p>
-                    <div style="background: rgba(0,0,0,0.5); padding: 20px; border-radius: 12px; text-align: left; border: 1px solid var(--glass-border);">
-                        <p style="color: #fff; margin-bottom: 10px;"><b>Como adicionar um projeto:</b></p>
-                        <ol style="color: #aaa; margin-left: 20px; line-height: 1.8;">
-                            <li>Salve a foto do projeto na pasta principal.</li>
-                            <li>Abra o arquivo <code>projetos.json</code>.</li>
-                            <li>Copie e cole um bloco de projeto existente.</li>
-                            <li>Preencha os novos dados e o nome exato da foto.</li>
-                            <li>Faça o <code>git push</code> para a nuvem.</li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-        </section>
-
     </main>
 
-    <div id="whatsapp-widget" class="wa-widget">
-        <div class="wa-button glass-panel">
+    <div id="whatsapp-widget" class="wa-widget reveal delay-2">
+        <div class="wa-button">
             <i class="fa-brands fa-whatsapp"></i>
-            <span class="wa-badge">1</span>
         </div>
-        <div class="wa-chat-box glass-panel">
+        <div class="wa-chat-box">
             <div class="wa-header">
                 <div class="wa-avatar">
                     <img src="Foto_perfil_port.jpeg" alt="Lucas Gabriel">
@@ -202,7 +162,7 @@
             </div>
             <div class="wa-messages" id="wa-messages-container"></div>
             <div class="wa-footer">
-                <input type="text" id="wa-input" placeholder="Digite uma opção (1, 2 ou 3)...">
+                <input type="text" id="wa-input" placeholder="Digite uma opção...">
                 <button id="wa-send"><i class="fa-solid fa-paper-plane"></i></button>
             </div>
         </div>
