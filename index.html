@@ -6,46 +6,54 @@
     <title>Lucas Gabriel | Desenvolvedor Full Stack</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=2.0">
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
 
+    <!-- AURA BACKGROUND RÁPIDA (Luzes Dinâmicas) -->
     <div class="glow-bg">
         <div class="blob blob-orange"></div>
         <div class="blob blob-pink"></div>
         <div class="blob blob-purple"></div>
     </div>
 
-    <nav class="navbar reveal">
+    <!-- CABEÇALHO (HEADER COMPLETO COM PÍLULAS) -->
+    <header class="navbar reveal">
+        <a href="#home" class="nav-brand">
+            Lucas Gabriel 
+            <span class="brand-subtitle">Desenvolvedor</span>
+        </a>
         <ul class="nav-links">
             <li>
-                <a href="#home">
+                <a href="#home" class="nav-item-pill">
                     <i class="fa-solid fa-house nav-icon"></i>
                     <span class="nav-text">Início</span>
                 </a>
             </li>
             <li>
-                <a href="#servicos">
+                <a href="#servicos" class="nav-item-pill">
                     <i class="fa-solid fa-layer-group nav-icon"></i>
                     <span class="nav-text">Serviços</span>
                 </a>
             </li>
             <li>
-                <a href="#projetos">
+                <a href="#projetos" class="nav-item-pill">
                     <i class="fa-solid fa-code nav-icon"></i>
                     <span class="nav-text">Sistemas</span>
                 </a>
             </li>
             <li>
-                <a href="#contato">
+                <a href="#contato" class="nav-item-pill">
                     <i class="fa-solid fa-paper-plane nav-icon"></i>
                     <span class="nav-text">Contato</span>
                 </a>
             </li>
         </ul>
-    </nav>
+    </header>
 
     <main class="main-content">
         
+        <!-- SEÇÃO INÍCIO -->
         <section id="home" class="section">
             <div class="hero-container">
                 <div class="hero-bio reveal delay-1">
@@ -75,6 +83,7 @@
             </div>
         </section>
 
+        <!-- SEÇÃO SERVIÇOS -->
         <section id="servicos" class="section">
             <div class="section-header reveal">
                 <h2 class="section-title">Minha Especialização</h2>
@@ -105,6 +114,7 @@
             </div>
         </section>
 
+        <!-- SEÇÃO PROJETOS -->
         <section id="projetos" class="section">
             <div class="section-header reveal">
                 <h2 class="section-title">Projetos em Destaque</h2> 
@@ -112,9 +122,11 @@
             </div>
             
             <div class="projects-grid" id="dynamic-projects-grid">
-                </div>
+                <!-- Injetados dinamicamente via JS -->
+            </div>
         </section>
 
+        <!-- SEÇÃO CONTATO -->
         <section id="contato" class="section">
             <div class="section-header text-center reveal">
                 <h2 class="section-title">Vamos Trabalhar Juntos?</h2>
@@ -143,6 +155,7 @@
         
     </main>
 
+    <!-- WIDGET DO CHATBOT WHATSAPP -->
     <div id="whatsapp-widget" class="wa-widget reveal delay-2">
         <div class="wa-button">
             <i class="fa-brands fa-whatsapp"></i>

@@ -25,7 +25,7 @@ html { scroll-behavior: smooth; }
 body { background-color: var(--bg-base); color: var(--text-main); overflow-x: hidden; }
 
 /* ==========================================================================
-   AURA BACKGROUND ANIMADO (MAIS RÁPIDO)
+   AURA BACKGROUND ANIMADO
    ========================================================================== */
 .glow-bg {
     position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
@@ -36,7 +36,6 @@ body { background-color: var(--bg-base); color: var(--text-main); overflow-x: hi
     position: absolute; border-radius: 50%; filter: blur(130px); opacity: 0.3; 
 }
 
-/* Tempo de animação reduzido para o movimento ser bem perceptível */
 .blob-orange { width: 50vw; height: 50vw; background: var(--neon-orange); top: -10%; left: -10%; animation: floatAura 8s infinite alternate cubic-bezier(0.4, 0, 0.2, 1); }
 .blob-pink { width: 45vw; height: 45vw; background: var(--neon-pink); bottom: -10%; right: -5%; animation: floatAura 10s infinite alternate-reverse cubic-bezier(0.4, 0, 0.2, 1); }
 .blob-purple { width: 55vw; height: 55vw; background: var(--neon-purple); top: 30%; left: 20%; animation: floatAura 12s infinite alternate cubic-bezier(0.4, 0, 0.2, 1); }
@@ -49,7 +48,7 @@ body { background-color: var(--bg-base); color: var(--text-main); overflow-x: hi
 }
 
 /* ==========================================================================
-   ANIMAÇÃO SCROLL REVEAL (Efeito Zoom-In adicionado)
+   ANIMAÇÃO SCROLL REVEAL
    ========================================================================== */
 .reveal {
     opacity: 0;
@@ -65,21 +64,46 @@ body { background-color: var(--bg-base); color: var(--text-main); overflow-x: hi
 .delay-4 { transition-delay: 0.4s; }
 
 /* ==========================================================================
-   MENU FLUTUANTE (Centralizado)
+   CABEÇALHO NO TOPO COM PÍLULAS INTERNAS
    ========================================================================== */
 .navbar {
-    position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-    display: flex; justify-content: center; align-items: center;
-    padding: 15px 40px; width: max-content; z-index: 1000; /* max-content para abraçar apenas os links */
-    border-radius: 50px; 
-    background: rgba(11, 18, 24, 0.85); 
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    position: fixed; top: 0; left: 0; width: 100%;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 5%; z-index: 1000;
+    background: rgba(5, 9, 13, 0.85); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(15px); 
 }
 
-.nav-links { display: flex; gap: 40px; list-style: none; align-items: center; }
-.nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: 0.3s; display: flex; align-items: center; gap: 8px;}
-.nav-links a:hover { color: var(--accent-color); }
+.nav-brand { 
+    color: var(--text-main); font-size: 1.4rem; text-decoration: none; 
+    font-weight: 800; letter-spacing: -0.5px;
+    display: flex; align-items: center; gap: 10px;
+}
+
+.brand-subtitle {
+    font-size: 0.9rem; font-weight: 500; color: var(--accent-color);
+    border-left: 2px solid rgba(255, 255, 255, 0.1);
+    padding-left: 10px;
+}
+
+.nav-links { display: flex; gap: 12px; list-style: none; align-items: center; }
+
+/* Design das Pílulas de Navegação */
+.nav-item-pill { 
+    color: var(--text-muted); text-decoration: none; font-size: 0.95rem; font-weight: 500; 
+    transition: 0.3s; display: flex; align-items: center; gap: 8px;
+    padding: 10px 24px; border-radius: 30px; 
+    background: rgba(255, 255, 255, 0.03); 
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.nav-item-pill:hover { 
+    color: var(--text-main); 
+    background: rgba(255, 255, 255, 0.08); 
+    border-color: var(--accent-color); 
+}
+
 .nav-icon { display: none; } /* Ícones escondidos no PC */
 
 /* ==========================================================================
@@ -161,7 +185,7 @@ body { background-color: var(--bg-base); color: var(--text-main); overflow-x: hi
 .contact-item.highlight:hover { background: #e6e6e6; }
 
 /* ==========================================================================
-   WIDGET WHATSAPP (Agora com Z-index super alto e display forçado)
+   WIDGET WHATSAPP
    ========================================================================== */
 .wa-widget { position: fixed; bottom: 30px; right: 30px; z-index: 999999; display: block; }
 .wa-button { width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 2rem; color: #fff; background: var(--grad-orange-pink); box-shadow: 0 10px 30px rgba(255, 94, 0, 0.4); transition: 0.3s; }
@@ -193,7 +217,7 @@ body { background-color: var(--bg-base); color: var(--text-main); overflow-x: hi
 #wa-send { background: var(--text-main); color: #000; border: none; width: 45px; border-radius: 50%; cursor: pointer; font-size: 1rem; transition: 0.2s; display: flex; justify-content: center; align-items: center;}
 
 /* ==========================================================================
-   MOBILE RESPONSIVO (Correção do Menu com Ícones)
+   MOBILE RESPONSIVO (Fixado no topo e layout fluido)
    ========================================================================== */
 @media (max-width: 1024px) {
     .hero-container { flex-direction: column-reverse; text-align: center; }
@@ -204,11 +228,22 @@ body { background-color: var(--bg-base); color: var(--text-main); overflow-x: hi
 }
 
 @media (max-width: 768px) {
-    /* Menu Mobile Vira uma pílula inferior com ícones */
-    .navbar { top: auto; bottom: 20px; width: 90%; padding: 15px 25px; }
-    .nav-text { display: none; } /* Esconde o texto para não quebrar a tela */
-    .nav-icon { display: block; font-size: 1.4rem; color: var(--text-muted); } /* Mostra os ícones */
-    .nav-links { width: 100%; justify-content: space-between; gap: 0; }
+    /* Cabeçalho Fixo no Topo */
+    .navbar { 
+        padding: 15px 20px; 
+        flex-direction: row; 
+        justify-content: space-between;
+    }
+    
+    .nav-brand { font-size: 1.1rem; gap: 5px; }
+    .brand-subtitle { display: none; } /* Esconde para focar no seu nome e pílulas */
+    
+    .nav-links { gap: 6px; }
+    .nav-item-pill { padding: 8px 12px; }
+    
+    .nav-text { display: none; } /* Esconde o texto da pílula, mantém ícones */
+    .nav-icon { display: block; font-size: 1.1rem; color: var(--text-muted); transition: 0.3s; }
+    .nav-item-pill:hover .nav-icon { color: var(--accent-color); }
     
     .nome-destaque { font-size: 2.8rem; }
     .section-title { font-size: 2.5rem; }
@@ -216,6 +251,5 @@ body { background-color: var(--bg-base); color: var(--text-main); overflow-x: hi
     .hero-buttons { flex-direction: column; width: 100%; }
     .btn-primary, .btn-secondary { width: 100%; }
     
-    /* Garante que o WhatsApp não sobreponha o menu no celular */
-    .wa-widget { bottom: 100px; right: 20px; }
+    .wa-widget { bottom: 30px; right: 20px; } /* Botão do Whats volta pro lugar natural */
 }
