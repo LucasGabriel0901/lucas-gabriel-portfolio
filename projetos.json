@@ -38,5 +38,16 @@
       "img": "denken_.png", 
       "link": "https://lucasgabriel0901.github.io/denken/",
       "status": "concluido"
+    },
+    {
+      "id": "4",
+      "title": "Lívia Martins | Psicóloga Clínica",
+      "desc": "Esta é uma Landing Page desenvolvida para o nicho de Psicologia Clínica",
+      "funcionalidades": [
+        "Projeto de uma Landing Page moderna e responsiva desenvolvida especificamente para o nicho de saúde mental e psicologia. O objetivo foi criar uma interface que transmitisse acolhimento, leveza e profissionalismo, fugindo dos layouts tradicionais em tela cheia e adotando a estética premium de Floating Showcase (Janela Flutuante)."
+      ],
+      "img": "livia.png", 
+      "link": "https://lucasgabriel0901.github.io/-L-via-Martins-Psic-loga/",
+      "status": "concluido"
     }
 ]
