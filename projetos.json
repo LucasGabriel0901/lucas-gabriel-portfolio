@@ -49,5 +49,20 @@
       "img": "livia.png", 
       "link": "https://lucasgabriel0901.github.io/-L-via-Martins-Psic-loga/",
       "status": "concluido"
+    },
+
+{
+      "id": "5",
+      "title": "Porsche GT3 RS | Digital Experience",
+      "desc": "Experiência imersiva de alto impacto para showcase automotivo, focada em performance visual e interatividade avançada.",
+      "funcionalidades": [
+        "Integração com GSAP e ScrollTrigger para animações cinemáticas sincronizadas com o scroll.",
+        "Sistema de áudio imersivo com ignição e ronco de motor real.",
+        "Interface AR (HUD) dinâmica com hotspots interativos e reveal de componentes.",
+        "Performance otimizada com vídeo controlado e efeitos de profundidade (parallax e cursor customizado)."
+      ],
+      "img": "porsche.png",
+      "link": "https://lucasgabriel0901.github.io/PORSCHE-GT3-RS-/",
+      "status": "concluido"
     }
 ]
