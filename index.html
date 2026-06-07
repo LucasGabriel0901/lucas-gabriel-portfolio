@@ -3,350 +3,274 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lucas Gabriel | Sistemas & Web</title>
+    <title>Lucas Gabriel | Sistemas & Análise de Dados</title>
+    <!-- Fonte Premium -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- AURA BACKGROUND (Luzes de Fundo Ajustadas) -->
-    <div class="glow-bg" id="parallax-bg">
-        <div class="blob blob-orange"></div>
-        <div class="blob blob-pink"></div>
-        <div class="blob blob-purple"></div>
-    </div>
-
-    <!-- CABEÇALHO / MENU FLUTUANTE (Sem a classe do GSAP que travava o menu) -->
-    <header class="navbar">
-        <a href="#home" class="nav-brand">
-            Lucas Gabriel 
-            <span class="brand-subtitle">Desenvolvedor</span>
-        </a>
-        <ul class="nav-links">
-            <li><a href="#home" class="nav-item-pill"><i class="fa-solid fa-house nav-icon"></i><span class="nav-text">Início</span></a></li>
-            <li><a href="#sobre" class="nav-item-pill"><i class="fa-solid fa-user nav-icon"></i><span class="nav-text">Sobre</span></a></li>
-            <li><a href="#dores" class="nav-item-pill"><i class="fa-solid fa-triangle-exclamation nav-icon"></i><span class="nav-text">Dores</span></a></li>
-            <li><a href="#processo" class="nav-item-pill"><i class="fa-solid fa-route nav-icon"></i><span class="nav-text">Processo</span></a></li>
-            <li><a href="#planos" class="nav-item-pill"><i class="fa-solid fa-tag nav-icon"></i><span class="nav-text">Planos</span></a></li>
-            <li><a href="#projetos" class="nav-item-pill"><i class="fa-solid fa-code nav-icon"></i><span class="nav-text">Sistemas</span></a></li>
-        </ul>
+    <!-- CABEÇALHO INVISÍVEL -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="nav-left">
+                <a href="#hero" class="logo">lucas<span>.Gabriel</span></a>
+                <nav class="nav-menu desktop-only">
+                    <ul class="nav-list">
+                        <li><a href="#sobre" class="nav-link">Sobre</a></li>
+                        <li><a href="#problemas" class="nav-link">Serviços</a></li>
+                        <li><a href="#processo" class="nav-link">Processo</a></li>
+                        <li><a href="#projetos" class="nav-link">Projetos</a></li>
+                        <li><a href="#planos" class="nav-link">Planos</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <a href="https://wa.me/5511978730908" target="_blank" class="btn-header desktop-only">Falar comigo</a>
+        </div>
     </header>
 
-    <!-- Camada Principal -->
-    <main class="main-content">
-        
-        <!-- SEÇÃO INÍCIO -->
-        <section id="home" class="section hero-centered">
-            <div class="hero-content gsap-fade-up-slow">
-                <h2 class="sub-hero-title">Lucas Gabriel — Desenvolvedor de Sistemas</h2>
-                <h1 class="nome-destaque">Soluções em<br>Sistemas & Web.</h1>
-                
-                <div class="hero-buttons">
-                    <a href="#projetos" class="btn-primary">Ver Portfólio</a>
-                    <a href="#contato" class="btn-secondary">Falar no WhatsApp</a>
+    <main>
+        <!-- HERO SECTION -->
+        <section id="hero" class="hero">
+            <div class="container hero-content">
+                <div class="hero-text fade-up">
+                    <h1 class="hero-title">Lucas Gabriel</h1>
+                    <h2 class="hero-role">Desenvolvedor de Sistemas & Analista de Dados</h2>
+                    <p class="hero-subtitle">
+                        Soluções digitais simples e de alta performance. Transformo problemas complexos do seu negócio em resultados reais.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#planos" class="btn-primary">Ver Planos e Valores</a>
+                        <a href="#projetos" class="btn-link">Ver meu portfólio <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
                 </div>
-
-                <div class="habilidade-tags hero-tags">
-                    <span class="solid-tag tag-python"><i class="fa-brands fa-python"></i> Python</span>
-                    <span class="solid-tag tag-js"><i class="fa-brands fa-js"></i> JavaScript</span>
-                    <span class="solid-tag tag-flutter"><i class="fa-solid fa-mobile-screen"></i> Flutter & Dart</span>
-                    <span class="solid-tag tag-db"><i class="fa-solid fa-database"></i> PostgreSQL</span>
-                    <span class="solid-tag tag-azure"><i class="fa-brands fa-microsoft"></i> Azure</span>
+                <!-- FOTO COLORIDA COM BORDAS ARREDONDADAS -->
+                <div class="hero-image fade-up delay-1">
+                    <div class="image-wrapper">
+                        <img src="Foto_perfil_port.jpeg" alt="Lucas Gabriel" onerror="this.src='https://via.placeholder.com/400x500/111/333'">
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- SEÇÃO OBJETIVO -->
-        <section id="objetivo" class="section compact-section objective-section">
-            <div class="gsap-scale-up">
-                <h2 class="objetivo-gigante">
-                    🎯 Meu objetivo principal é <span class="highlight-text">melhorar a sua comunicação com seus clientes</span> e alavancar seus resultados através de tecnologia de ponta.
-                </h2>
-            </div>
-        </section>
-
-        <!-- SEÇÃO SOBRE MIM -->
+        <!-- SOBRE MIM -->
         <section id="sobre" class="section">
-            <div class="sobre-container">
-                <div class="sobre-texto gsap-slide-right">
+            <div class="container fade-up">
+                <div class="sobre-card">
                     <h2 class="section-title">Sobre Mim</h2>
-                    <p class="hero-desc">Olá! Me chamo Lucas. Sou Engenheiro de Software, Analista de Dados e Desenvolvedor Full Stack apaixonado por tecnologia.</p>
-                    <p class="hero-desc">Minha especialidade é construir sistemas completos, eficientes e escaláveis. Transformo problemas complexos do seu negócio em soluções digitais simples e modernas, utilizando o que há de mais avançado em desenvolvimento web, infraestrutura em nuvem e análise de dados para gerar resultados reais.</p>
-                </div>
-                <div class="sobre-imagem hero-profile gsap-slide-left">
-                    <div class="profile-glow"></div>
-                    <div class="profile-circle">
-                        <img src="Foto_perfil_port.jpeg" alt="Lucas Gabriel">
+                    <p class="text-muted">
+                        🎯 Meu objetivo principal é <strong>melhorar a sua comunicação com seus clientes</strong> e alavancar seus resultados através da tecnologia. Sou focado em entregar código limpo, interfaces modernas e infraestrutura robusta na nuvem.
+                    </p>
+                    <div class="tech-tags">
+                        <span><i class="fa-brands fa-python"></i> Python</span>
+                        <span><i class="fa-brands fa-js"></i> JavaScript</span>
+                        <span><i class="fa-solid fa-database"></i> PostgreSQL</span>
+                        <span><i class="fa-brands fa-microsoft"></i> Azure</span>
+                        <span><i class="fa-brands fa-figma"></i> Figma</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SEÇÃO DORES -->
-        <section id="dores" class="section compact-section">
-            <div class="section-header text-center gsap-fade-up">
-                <h2 class="section-title">O que acontece sem um site?</h2>
-                <p class="section-subtitle">O custo invisível de não ter uma presença digital profissional.</p>
+        <!-- DORES E SOLUÇÕES (CARROSSEL) -->
+        <section id="problemas" class="section full-width-section">
+            <div class="container">
+                <h2 class="section-title text-center fade-up">O que eu construo para você</h2>
+                <p class="section-subtitle fade-up text-muted">O impacto de ter (ou não) uma presença digital forte.</p>
             </div>
             
-            <div class="services-grid gsap-stagger-grid">
-                <div class="service-card card-dor inspira-spotlight">
-                    <div class="icon-box"><i class="fa-solid fa-eye-slash"></i></div>
-                    <h3>Invisibilidade Digital</h3>
-                    <p>Seus clientes estão buscando no Google agora. Se você não está lá, seu concorrente leva a venda.</p>
+            <!-- Carrossel de Dores (Esquerda) -->
+            <div class="marquee-wrapper">
+                <div class="marquee marquee-left">
+                    <div class="card card-dor">
+                        <div class="icon-box"><i class="fa-solid fa-eye-slash"></i></div>
+                        <h3>Invisibilidade Digital</h3>
+                        <p class="text-muted">Se você não tem uma Landing Page, seu concorrente leva a venda no Google.</p>
+                    </div>
+                    <div class="card card-dor">
+                        <div class="icon-box"><i class="fa-solid fa-users-slash"></i></div>
+                        <h3>Perda de Credibilidade</h3>
+                        <p class="text-muted">Sem um site profissional, novos clientes sentem insegurança em comprar de você.</p>
+                    </div>
+                    <div class="card card-dor">
+                        <div class="icon-box"><i class="fa-solid fa-hourglass-half"></i></div>
+                        <h3>Perda de Tempo</h3>
+                        <p class="text-muted">Responder as mesmas dúvidas de preços no WhatsApp consome suas horas preciosas.</p>
+                    </div>
+                    <!-- Clones JS -->
+                    <div class="card card-dor" aria-hidden="true">
+                        <div class="icon-box"><i class="fa-solid fa-eye-slash"></i></div>
+                        <h3>Invisibilidade Digital</h3>
+                        <p class="text-muted">Se você não tem uma Landing Page, seu concorrente leva a venda no Google.</p>
+                    </div>
+                    <div class="card card-dor" aria-hidden="true">
+                        <div class="icon-box"><i class="fa-solid fa-users-slash"></i></div>
+                        <h3>Perda de Credibilidade</h3>
+                        <p class="text-muted">Sem um site profissional, novos clientes sentem insegurança em comprar de você.</p>
+                    </div>
+                    <div class="card card-dor" aria-hidden="true">
+                        <div class="icon-box"><i class="fa-solid fa-hourglass-half"></i></div>
+                        <h3>Perda de Tempo</h3>
+                        <p class="text-muted">Responder as mesmas dúvidas de preços no WhatsApp consome suas horas preciosas.</p>
+                    </div>
                 </div>
-                <div class="service-card card-dor inspira-spotlight">
-                    <div class="icon-box"><i class="fa-solid fa-users-slash"></i></div>
-                    <h3>Perda de Credibilidade</h3>
-                    <p>Falta de um site passa insegurança. O cliente confia em empresas com posicionamento profissional.</p>
-                </div>
-                <div class="service-card card-dor inspira-spotlight">
-                    <div class="icon-box"><i class="fa-solid fa-comment-slash"></i></div>
-                    <h3>Comunicação Limitada</h3>
-                    <p>Depender apenas do Instagram dificulta a clareza dos seus serviços e gera ruídos no atendimento.</p>
-                </div>
-                <div class="service-card card-dor inspira-spotlight">
-                    <div class="icon-box"><i class="fa-solid fa-hourglass-half"></i></div>
-                    <h3>Perda de Tempo</h3>
-                    <p>Responder as mesmas dúvidas de preços e serviços manualmente consome suas horas preciosas.</p>
-                </div>
-                <div class="service-card card-dor inspira-spotlight">
-                    <div class="icon-box"><i class="fa-solid fa-link-slash"></i></div>
-                    <h3>Dependência de Redes</h3>
-                    <p>Se o Instagram cair ou o algoritmo mudar, seu faturamento despenca. Você não tem controle.</p>
-                </div>
-                <div class="service-card card-dor inspira-spotlight">
-                    <div class="icon-box"><i class="fa-solid fa-handshake-angle"></i></div>
-                    <h3>Concorrência Desleal</h3>
-                    <p>Você perde clientes qualificados para concorrentes piores, apenas porque eles parecem mais profissionais online.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SEÇÃO SOLUÇÕES -->
-        <section id="solucoes" class="section compact-section">
-            <div class="section-header text-center gsap-fade-up">
-                <h2 class="section-title">A Solução Definitiva</h2>
-                <p class="section-subtitle">Como a tecnologia resolve seus gargalos comerciais.</p>
-            </div>
-            
-            <div class="services-grid gsap-stagger-grid">
-                <div class="service-card card-solucao inspira-spotlight">
-                    <div class="icon-box"><i class="fa-solid fa-clock"></i></div>
-                    <h3>Vendedor 24 Horas</h3>
-                    <p>Seu site trabalha sem pausas, captando leads e fechando vendas enquanto você dorme.</p>
-                </div>
-                <div class="service-card card-solucao inspira-spotlight">
-                    <div class="icon-box"><i class="fa-solid fa-shield-halved"></i></div>
-                    <h3>Autoridade Imediata</h3>
-                    <p>Um design imersivo eleva o nível da sua marca e elimina a concorrência por preço.</p>
-                </div>
-                <div class="service-card card-solucao inspira-spotlight">
-                    <div class="icon-box"><i class="fa-solid fa-comments"></i></div>
-                    <h3>Comunicação Otimizada</h3>
-                    <p>Apresente seus valores e funil de atendimento, levando o cliente certo direto para o WhatsApp.</p>
-                </div>
-                <div class="service-card card-solucao inspira-spotlight">
-                    <div class="icon-box"><i class="fa-solid fa-robot"></i></div>
-                    <h3>Escala e Automação</h3>
-                    <p>Estrutura preparada para receber chatbots e APIs, escalando vendas sem esforço manual.</p>
-                </div>
-                <div class="service-card card-solucao inspira-spotlight">
-                    <div class="icon-box"><i class="fa-brands fa-google"></i></div>
-                    <h3>Posicionamento SEO</h3>
-                    <p>Seja encontrado facilmente por quem já quer comprar de você através das buscas do Google.</p>
-                </div>
-                <div class="service-card card-solucao inspira-spotlight">
-                    <div class="icon-box"><i class="fa-solid fa-key"></i></div>
-                    <h3>Controle Total</h3>
-                    <p>Seu site, suas regras. Você não fica refém de algoritmos ou bloqueios de redes sociais.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SEÇÃO PROCESSO -->
-        <section id="processo" class="section compact-section">
-            <div class="section-header text-center gsap-fade-up">
-                <h2 class="section-title">O Meu Processo</h2>
-                <p class="section-subtitle">Transparência e velocidade do primeiro contato ao site no ar.</p>
             </div>
 
-            <div class="timeline gsap-stagger-grid">
-                <div class="timeline-item inspira-spotlight">
-                    <div class="timeline-number">01</div>
-                    <div class="timeline-content">
-                        <h3>Reunião de Alinhamento</h3>
-                        <p>Batemos um papo para alinhar o design desejado, informações do site, contatos, funcionalidades e valores.</p>
+            <!-- Carrossel de Soluções (Direita) -->
+            <div class="marquee-wrapper mt-4">
+                <div class="marquee marquee-right">
+                    <div class="card card-solucao">
+                        <div class="icon-box"><i class="fa-solid fa-clock"></i></div>
+                        <h3>Vendedor 24 Horas</h3>
+                        <p class="text-muted">Sua Landing Page capta leads e fecha vendas enquanto você dorme.</p>
                     </div>
-                </div>
-                <div class="timeline-item inspira-spotlight">
-                    <div class="timeline-number">02</div>
-                    <div class="timeline-content">
-                        <h3>Contrato e Planejamento</h3>
-                        <p>Ajusto todas as informações debatidas, enviamos o contrato para segurança mútua e iniciamos o desenvolvimento.</p>
+                    <div class="card card-solucao">
+                        <div class="icon-box"><i class="fa-solid fa-shield-halved"></i></div>
+                        <h3>Autoridade Imediata</h3>
+                        <p class="text-muted">Um design imersivo eleva o nível da sua marca e elimina a concorrência por preço.</p>
                     </div>
-                </div>
-                <div class="timeline-item inspira-spotlight">
-                    <div class="timeline-number">03</div>
-                    <div class="timeline-content">
-                        <h3>Processo de Criação</h3>
-                        <p>Imersão total no seu projeto. O desenvolvimento do código e do layout leva em média de <strong>1 a 2 dias</strong>.</p>
+                    <div class="card card-solucao">
+                        <div class="icon-box"><i class="fa-solid fa-robot"></i></div>
+                        <h3>Escala e Automação</h3>
+                        <p class="text-muted">Chatbots e Sistemas integrados que escalam suas vendas sem esforço manual.</p>
                     </div>
-                </div>
-                <div class="timeline-item inspira-spotlight">
-                    <div class="timeline-number">04</div>
-                    <div class="timeline-content">
-                        <h3>Período de Testes</h3>
-                        <p>Revisamos tudo juntos. Validamos a performance, links, responsividade no celular e as informações visuais.</p>
+                    <!-- Clones JS -->
+                    <div class="card card-solucao" aria-hidden="true">
+                        <div class="icon-box"><i class="fa-solid fa-clock"></i></div>
+                        <h3>Vendedor 24 Horas</h3>
+                        <p class="text-muted">Sua Landing Page capta leads e fecha vendas enquanto você dorme.</p>
                     </div>
-                </div>
-                <div class="timeline-item inspira-spotlight">
-                    <div class="timeline-number">05</div>
-                    <div class="timeline-content">
-                        <h3>Lançamento e Entrega</h3>
-                        <p>Te ajudo a configurar seu domínio e hospedagem. Em seguida, te envio um e-mail com os arquivos, links e o projeto 100% no ar!</p>
+                    <div class="card card-solucao" aria-hidden="true">
+                        <div class="icon-box"><i class="fa-solid fa-shield-halved"></i></div>
+                        <h3>Autoridade Imediata</h3>
+                        <p class="text-muted">Um design imersivo eleva o nível da sua marca e elimina a concorrência por preço.</p>
+                    </div>
+                    <div class="card card-solucao" aria-hidden="true">
+                        <div class="icon-box"><i class="fa-solid fa-robot"></i></div>
+                        <h3>Escala e Automação</h3>
+                        <p class="text-muted">Chatbots e Sistemas integrados que escalam suas vendas sem esforço manual.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SEÇÃO PREÇOS / PLANOS -->
-        <section id="planos" class="section">
-            <div class="section-header text-center gsap-fade-up">
-                <h2 class="section-title">Investimento</h2>
-                <p class="section-subtitle">Sem surpresas. Transparência, contrato de segurança e pagamento facilitado.</p>
-            </div>
+        <!-- PROCESSO HORIZONTAL (VERTICAL NO MOBILE) -->
+        <section id="processo" class="section">
+            <div class="container fade-up">
+                <h2 class="section-title text-center">Como eu trabalho</h2>
+                <p class="section-subtitle text-center text-muted">Do primeiro contato ao projeto no ar.</p>
 
-            <div class="pricing-grid gsap-stagger-grid">
-                
-                <!-- PLANO ESTUDANTE (VERDE) -->
-                <div class="pricing-card inspira-spotlight special-student">
-                    <div class="pricing-header">
-                        <h3>Plano Estudante</h3>
-                        <p>Landing Page para alavancar seu início de carreira.</p>
+                <div class="process-horizontal">
+                    <div class="process-step">
+                        <div class="step-number">01</div>
+                        <h3>Alinhamento</h3>
+                        <p class="text-muted">Reunião para definir design, funções e valores.</p>
                     </div>
-                    <div class="price"><span>R$</span>150</div>
-                    <ul class="pricing-features">
-                        <li><i class="fa-solid fa-graduation-cap"></i> <strong>Exclusivo p/ Universitários</strong></li>
-                        <li><i class="fa-solid fa-id-card"></i> Requer Carteirinha e Histórico</li>
-                        <li><i class="fa-solid fa-scroll"></i> Último ano ou Concluído</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Design Responsivo e Moderno</li>
-                    </ul>
-                    <a href="https://wa.me/5511978730908?text=Olá%20Lucas!%20Gostaria%20de%20solicitar%20o%20Plano%20Estudante%20para%20Landing%20Page." target="_blank" class="btn-pricing btn-student">Solicitar Plano</a>
-                </div>
-
-                <!-- PLANO 1 -->
-                <div class="pricing-card inspira-spotlight">
-                    <div class="pricing-header">
-                        <h3>Landing Page</h3>
-                        <p>Ideal para captação de leads e vendas diretas.</p>
+                    <i class="fa-solid fa-arrow-right process-arrow"></i>
+                    
+                    <div class="process-step">
+                        <div class="step-number">02</div>
+                        <h3>Contrato</h3>
+                        <p class="text-muted">Envio do escopo fechado e segurança mútua.</p>
                     </div>
-                    <div class="price"><span>R$</span>350</div>
-                    <ul class="pricing-features">
-                        <li><i class="fa-solid fa-circle-check"></i> Design Responsivo e Moderno</li>
-                        <li><i class="fa-solid fa-circle-check"></i> <strong>Dividido em até 3x</strong></li>
-                        <li><i class="fa-solid fa-circle-check"></i> Regido por Contrato</li>
-                        <li><i class="fa-solid fa-circle-check"></i> <strong>6 Meses de Suporte</strong></li>
-                    </ul>
-                    <a href="https://wa.me/5511978730908?text=Olá%20Lucas!%20Gostaria%20de%20solicitar%20uma%20Landing%20Page." target="_blank" class="btn-pricing">Quero este plano</a>
-                </div>
+                    <i class="fa-solid fa-arrow-right process-arrow"></i>
 
-                <!-- PLANO 2 -->
-                <div class="pricing-card inspira-spotlight highlight-card">
-                    <div class="pricing-header">
-                        <h3>Sites Robustos</h3>
-                        <p>Institucionais, Portfólios e Multi-páginas.</p>
+                    <div class="process-step">
+                        <div class="step-number">03</div>
+                        <h3>Criação</h3>
+                        <p class="text-muted">Desenvolvimento ágil, de 1 a 2 dias.</p>
                     </div>
-                    <div class="price"><span class="price-prefix">A partir de</span><span>R$</span>600</div>
-                    <ul class="pricing-features">
-                        <li><i class="fa-solid fa-circle-check"></i> Estrutura Completa UI/UX</li>
-                        <li><i class="fa-solid fa-circle-check"></i> <strong>Dividido em até 3x</strong></li>
-                        <li><i class="fa-solid fa-circle-check"></i> Regido por Contrato</li>
-                        <li><i class="fa-solid fa-circle-check"></i> <strong>6 Meses de Suporte</strong></li>
-                    </ul>
-                    <a href="https://wa.me/5511978730908?text=Olá%20Lucas!%20Gostaria%20de%20solicitar%20um%20Site%20Robusto." target="_blank" class="btn-pricing btn-pricing-highlight">Quero este plano</a>
-                </div>
+                    <i class="fa-solid fa-arrow-right process-arrow"></i>
 
-                <!-- PLANO 3 -->
-                <div class="pricing-card inspira-spotlight">
-                    <div class="pricing-header">
-                        <h3>Chatbots Inteligentes</h3>
-                        <p>Automação de atendimento para WhatsApp.</p>
+                    <div class="process-step">
+                        <div class="step-number">04</div>
+                        <h3>Testes</h3>
+                        <p class="text-muted">Validação de links, responsividade e layout.</p>
                     </div>
-                    <div class="price"><span class="price-prefix">A partir de</span><span>R$</span>600</div>
-                    <ul class="pricing-features">
-                        <li><i class="fa-solid fa-circle-check"></i> Automação de Perguntas</li>
-                        <li><i class="fa-solid fa-circle-check"></i> <strong>Dividido em até 3x</strong></li>
-                        <li><i class="fa-solid fa-circle-check"></i> Regido por Contrato</li>
-                        <li><i class="fa-solid fa-circle-check"></i> <strong>6 Meses de Suporte</strong></li>
-                    </ul>
-                    <a href="https://wa.me/5511978730908?text=Olá%20Lucas!%20Gostaria%20de%20um%20Chatbot%20para%20minha%20empresa." target="_blank" class="btn-pricing">Quero este plano</a>
-                </div>
+                    <i class="fa-solid fa-arrow-right process-arrow"></i>
 
-                <!-- PLANO 4 -->
-                <div class="pricing-card inspira-spotlight">
-                    <div class="pricing-header">
-                        <h3>Sistemas ERP / Gestão</h3>
-                        <p>Painéis completos para controle de negócios.</p>
+                    <div class="process-step">
+                        <div class="step-number">05</div>
+                        <h3>Entrega</h3>
+                        <p class="text-muted">Hospedagem, domínio e seu sistema 100% no ar.</p>
                     </div>
-                    <div class="price"><span class="price-prefix">A partir de</span><span>R$</span>1.200</div>
-                    <ul class="pricing-features">
-                        <li><i class="fa-solid fa-circle-check"></i> Banco de Dados / Full Stack</li>
-                        <li><i class="fa-solid fa-circle-check"></i> <strong>Dividido em até 3x</strong></li>
-                        <li><i class="fa-solid fa-circle-check"></i> Regido por Contrato</li>
-                        <li><i class="fa-solid fa-circle-check"></i> <strong>6 Meses de Suporte</strong></li>
-                    </ul>
-                    <a href="https://wa.me/5511978730908?text=Olá%20Lucas!%20Gostaria%20de%20orçar%20um%20Sistema%20ERP." target="_blank" class="btn-pricing">Quero este plano</a>
                 </div>
-
             </div>
         </section>
 
-        <!-- SEÇÃO PROJETOS -->
+        <!-- PROJETOS AGORA VÊM ANTES DOS PLANOS -->
         <section id="projetos" class="section">
-            <div class="section-header text-center gsap-fade-up">
-                <h2 class="section-title">Meus Projetos</h2> 
-                <p class="section-subtitle">Sistemas e Landing Pages focados em alta performance.</p>
-            </div>
-            
-            <div class="projects-grid gsap-stagger-grid" id="dynamic-projects-grid">
-                <!-- Injetados via JSON -->
+            <div class="container">
+                <h2 class="section-title fade-up">Projetos de Alta Performance</h2>
+                <p class="section-subtitle fade-up text-muted" style="text-align: left;">Sistemas desenvolvidos com arquitetura limpa e UI moderna.</p>
+                
+                <div class="projects-grid" id="projects-container">
+                    <!-- Gerados via JavaScript -->
+                </div>
             </div>
         </section>
 
-        <!-- SEÇÃO CONTATO -->
-        <section id="contato" class="section">
-            <div class="section-header text-center gsap-fade-up">
-                <h2 class="section-title">Pronto para começar?</h2>
-                <p class="section-subtitle">Fale comigo e vamos dar o primeiro passo do nosso processo.</p>
-            </div>
-            
-            <!-- Usando gsap-fade-up aqui para garantir que aparece -->
-            <div class="contact-links-large gsap-fade-up">
-                <a href="https://www.linkedin.com/in/lucas-gabriel-8a1a8b172" target="_blank" class="contact-item inspira-spotlight">
-                    <i class="fa-brands fa-linkedin"></i>
-                    <span>LinkedIn</span>
-                </a>
-                <a href="https://github.com/LucasGabriel0901" target="_blank" class="contact-item inspira-spotlight">
-                    <i class="fa-brands fa-github"></i>
-                    <span>GitHub</span>
-                </a>
-                <a href="mailto:goisgois31@gmail.com" class="contact-item inspira-spotlight">
-                    <i class="fa-solid fa-envelope"></i>
-                    <span>E-mail</span>
-                </a>
-                <a href="https://wa.me/5511978730908?text=Olá%20Lucas!%20Gostaria%20de%20iniciar%20o%20processo%20de%20criação%20do%20meu%20site." target="_blank" class="contact-item highlight inspira-spotlight">
-                    <i class="fa-brands fa-whatsapp"></i>
-                    <span>WhatsApp</span>
-                </a>
+        <!-- PLANOS E PREÇOS NO FINAL -->
+        <section id="planos" class="section">
+            <div class="container">
+                <h2 class="section-title text-center fade-up">Investimento</h2>
+                <p class="section-subtitle fade-up text-muted">Transparência total. Modelos de negócios claros para sua empresa.</p>
+
+                <div class="grid-cards">
+                    <div class="card card-student fade-up">
+                        <span class="badge">Exclusivo Universitários</span>
+                        <h3>Plano Estudante</h3>
+                        <div class="price">R$ 150</div>
+                        <p class="text-muted">Landing Page para alavancar seu início de carreira.</p>
+                        <ul class="features">
+                            <li><i class="fa-solid fa-check"></i> Carteirinha / Histórico</li>
+                            <li><i class="fa-solid fa-check"></i> Último ano ou Concluído</li>
+                            <li><i class="fa-solid fa-check"></i> Design Responsivo</li>
+                        </ul>
+                        <a href="https://wa.me/5511978730908?text=Olá%20Lucas!%20Gostaria%20de%20um%20plano%20para%20estudante." target="_blank" class="btn-student">Solicitar Plano</a>
+                    </div>
+
+                    <div class="card fade-up delay-1">
+                        <h3>Landing Page</h3>
+                        <div class="price">R$ 350</div>
+                        <p class="text-muted">Ideal para captação de leads e vendas diretas.</p>
+                        <ul class="features">
+                            <li><i class="fa-solid fa-check"></i> Alta Conversão</li>
+                            <li><i class="fa-solid fa-check"></i> Até 3x no cartão</li>
+                            <li><i class="fa-solid fa-check"></i> 6 Meses de Suporte</li>
+                        </ul>
+                        <a href="https://wa.me/5511978730908?text=Olá%20Lucas!%20Gostaria%20de%20fazer%20uma%20Landing%20Page." target="_blank" class="btn-outline">Quero este plano</a>
+                    </div>
+
+                    <div class="card fade-up delay-2">
+                        <h3>Sistemas / Gestão</h3>
+                        <div class="price"><span>A partir de</span> R$ 1.200</div>
+                        <p class="text-muted">Para controle total da sua empresa e processos.</p>
+                        <ul class="features">
+                            <li><i class="fa-solid fa-check"></i> Banco de Dados</li>
+                            <li><i class="fa-solid fa-check"></i> Painel Administrativo</li>
+                            <li><i class="fa-solid fa-check"></i> 6 Meses de Suporte</li>
+                        </ul>
+                        <a href="https://wa.me/5511978730908?text=Olá%20Lucas!%20Gostaria%20de%20fazer%20um%20orçamento%20de%20sistema%20de%20gestão." target="_blank" class="btn-outline">Quero este plano</a>
+                    </div>
+                </div>
             </div>
         </section>
-        
+
     </main>
 
+    <!-- RODAPÉ COMPLETO -->
+    <footer class="footer text-center">
+        <div class="container">
+            <h2 class="logo-footer">lucas<span>.Gabriel</span></h2>
+            <p class="text-muted">&copy; 2026 Lucas Gabriel. Todos os direitos reservados. Desenvolvedor de Sistemas.</p>
+        </div>
+    </footer>
+
     <!-- WIDGET DO CHATBOT WHATSAPP -->
-    <div id="whatsapp-widget" class="wa-widget">
+    <div id="whatsapp-widget" class="wa-widget fade-up delay-2">
         <div class="wa-button"><i class="fa-brands fa-whatsapp"></i></div>
         <div class="wa-chat-box">
             <div class="wa-header">
@@ -368,12 +292,14 @@
         </div>
     </div>
 
-    <!-- BIBLIOTECAS DE ANIMAÇÃO -->
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    
-    <!-- SEU SCRIPT -->
+    <!-- MENU MOBILE FLUTUANTE (ESTILO APP) -->
+    <nav class="mobile-app-nav">
+        <a href="#hero" class="app-nav-item"><i class="fa-solid fa-house"></i><span>Início</span></a>
+        <a href="#problemas" class="app-nav-item"><i class="fa-solid fa-layer-group"></i><span>Serviços</span></a>
+        <a href="#projetos" class="app-nav-item"><i class="fa-solid fa-code"></i><span>Projetos</span></a>
+        <a href="#planos" class="app-nav-item"><i class="fa-solid fa-tag"></i><span>Planos</span></a>
+    </nav>
+
     <script src="script.js"></script>
 </body>
 </html>
