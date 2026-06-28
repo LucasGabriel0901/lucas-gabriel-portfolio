@@ -1,68 +1,72 @@
-[
-  {
-      "id": "1",
+{
+  "site": {
+    "nome": "Lucas Gabriel",
+    "cargo": "Desenvolvedor Full Stack | Sistemas, Dados e Experiências Web",
+    "curriculoPdf": "Lucas-Gabriel-CV.pdf",
+    "contato": {
+      "whatsapp": "https://wa.me/5511978730908",
+      "instagram": "https://www.instagram.com/dev.lucasg/",
+      "linkedin": "COLE_AQUI_SEU_LINK_DO_LINKEDIN",
+      "github": "https://github.com/LucasGabriel0901"
+    }
+  },
+  "frontend": [
+    {
+      "id": "front-1",
       "title": "Dr. Sorriso | Landing Page Odontológica",
-      "desc": "Página de aterrissagem desenvolvida com foco em alta conversão.",
-      "funcionalidades": [
-          "Sistema de Agendamento dinâmico via WhatsApp.",
-          "Animações Otimizadas com IntersectionObserver.",
-          "UI/UX Moderno com Glassmorphism."
-      ],
+      "type": "Landing Page",
+      "desc": "Landing page odontológica desenvolvida com foco em conversão, apresentação profissional e direcionamento para agendamento.",
+      "stack": ["HTML", "CSS", "JavaScript", "UI/UX", "Responsivo"],
+      "images": ["logo_sorrisos.png", "site. sorriso.png"],
       "img": "logo_sorrisos.png",
       "link": "https://lucasgabriel0901.github.io/Site_dentista_sorriso/",
       "status": "concluido"
-  },
-  {
-      "id": "2",
-      "title": "Al Capone: Gestão e Agendamento",
-      "desc": "Plataforma Full Stack para automação de agendas e controle de disponibilidade.",
-      "funcionalidades": [
-          "Gerenciamento de Agendas com validação automática.",
-          "Controle de disponibilidade em tempo real.",
-          "Autenticação segura de usuários."
-      ],
-      "img": "Alcapone.jpeg",
-      "link": "https://github.com/LucasGabriel0901/Site_dentista_sorriso",
-      "status": "teste"
-  },
- {
-      "id": "3",
+    },
+    {
+      "id": "front-2",
       "title": "Denken | Processos e Gestão",
-      "desc": "Landing page de alta conversão para consultoria de food service, focada em captação de leads.",
-      "funcionalidades": [
-        "Chatbot interativo em Modal com opções de autoatendimento.",
-        "Integração direta com WhatsApp para agendamentos.",
-        "Layout responsivo com efeitos avançados de CSS (mask-image).",
-        "FAQ dinâmico em formato acordeão utilizando Vanilla JS."
-      ],
-      "img": "denken_.png", 
+      "type": "Landing Page",
+      "desc": "Landing page para consultoria de food service, focada em autoridade, apresentação de serviços e captação de contatos.",
+      "stack": ["HTML", "CSS", "JavaScript", "FAQ Dinâmico", "Responsivo"],
+      "images": ["denken_.png"],
+      "img": "denken_.png",
       "link": "https://lucasgabriel0901.github.io/denken/",
       "status": "concluido"
     },
     {
-      "id": "4",
+      "id": "front-3",
       "title": "Lívia Martins | Psicóloga Clínica",
-      "desc": "Esta é uma Landing Page desenvolvida para o nicho de Psicologia Clínica",
-      "funcionalidades": [
-        "Projeto de uma Landing Page moderna e responsiva desenvolvida especificamente para o nicho de saúde mental e psicologia. O objetivo foi criar uma interface que transmitisse acolhimento, leveza e profissionalismo, fugindo dos layouts tradicionais em tela cheia e adotando a estética premium de Floating Showcase (Janela Flutuante)."
-      ],
-      "img": "livia.png", 
+      "type": "Landing Page",
+      "desc": "Landing page para psicologia clínica com estética leve, profissional e acolhedora, transmitindo confiança e clareza para novos pacientes.",
+      "stack": ["HTML", "CSS", "JavaScript", "UI/UX", "Responsivo"],
+      "images": ["livia.png"],
+      "img": "livia.png",
       "link": "https://lucasgabriel0901.github.io/-L-via-Martins-Psic-loga/",
       "status": "concluido"
     },
-
-{
-      "id": "5",
+    {
+      "id": "front-4",
       "title": "Porsche GT3 RS | Digital Experience",
-      "desc": "Experiência imersiva de alto impacto para showcase automotivo, focada em performance visual e interatividade avançada.",
-      "funcionalidades": [
-        "Integração com GSAP e ScrollTrigger para animações cinemáticas sincronizadas com o scroll.",
-        "Sistema de áudio imersivo com ignição e ronco de motor real.",
-        "Interface AR (HUD) dinâmica com hotspots interativos e reveal de componentes.",
-        "Performance otimizada com vídeo controlado e efeitos de profundidade (parallax e cursor customizado)."
-      ],
+      "type": "Experiência Web",
+      "desc": "Experiência visual interativa para showcase automotivo, com animações, efeitos de profundidade e apresentação premium.",
+      "stack": ["HTML", "CSS", "JavaScript", "GSAP", "ScrollTrigger"],
+      "images": ["porsche.png"],
       "img": "porsche.png",
       "link": "https://lucasgabriel0901.github.io/PORSCHE-GT3-RS-/",
       "status": "concluido"
     }
-]
+  ],
+  "backend": [
+    {
+      "id": "back-1",
+      "title": "Al Capone | Sistema de Gestão e Agendamento",
+      "type": "Sistema Web",
+      "desc": "Sistema para gestão de agendamentos, controle de disponibilidade e organização operacional para barbearias.",
+      "stack": ["Python", "Flask", "SQL", "JavaScript", "Banco de Dados"],
+      "images": ["Alcapone.jpeg"],
+      "img": "Alcapone.jpeg",
+      "link": "https://github.com/LucasGabriel0901",
+      "status": "em desenvolvimento"
+    }
+  ]
+}

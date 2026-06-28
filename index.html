@@ -3,303 +3,602 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lucas Gabriel | Sistemas & Análise de Dados</title>
-    <!-- Fonte Premium -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Lucas Gabriel | Desenvolvedor Full Stack</title>
+
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <!-- Ícones -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <!-- CABEÇALHO INVISÍVEL -->
+    <!-- FUNDO ANIMADO -->
+    <div class="animated-bg">
+        <div class="bg-blur blur-one"></div>
+        <div class="bg-blur blur-two"></div>
+        <div class="bg-blur blur-three"></div>
+
+        <div class="code-rain">
+            <span>const developer = "Lucas Gabriel";</span>
+            <span>SELECT * FROM projetos WHERE status = 'concluido';</span>
+            <span>function buildSystem() { return "success"; }</span>
+            <span>api.post("/clientes", data);</span>
+            <span>npm run portfolio</span>
+            <span>git commit -m "new project"</span>
+        </div>
+    </div>
+
+    <!-- HEADER -->
     <header class="header">
         <div class="container header-container">
             <div class="nav-left">
                 <a href="#hero" class="logo">lucas<span>.Gabriel</span></a>
+
                 <nav class="nav-menu desktop-only">
                     <ul class="nav-list">
                         <li><a href="#sobre" class="nav-link">Sobre</a></li>
-                        <li><a href="#problemas" class="nav-link">Serviços</a></li>
-                        <li><a href="#processo" class="nav-link">Processo</a></li>
+                        <li><a href="#stack" class="nav-link">Stack</a></li>
                         <li><a href="#projetos" class="nav-link">Projetos</a></li>
-                        <li><a href="#planos" class="nav-link">Planos</a></li>
+                        <li><a href="#servicos" class="nav-link">Freelancer</a></li>
+                        <li><a href="#curriculo" class="nav-link">Currículo</a></li>
                     </ul>
                 </nav>
             </div>
-            <a href="https://wa.me/5511978730908" target="_blank" class="btn-header desktop-only">Falar comigo</a>
+
+            <a href="https://wa.me/5511978730908?text=Olá%20Lucas!%20Vim%20pelo%20seu%20portfólio." target="_blank" class="btn-header desktop-only">
+                Falar comigo
+            </a>
         </div>
     </header>
 
     <main>
-        <!-- HERO SECTION -->
+
+        <!-- HERO -->
         <section id="hero" class="hero">
             <div class="container hero-content">
+
                 <div class="hero-text fade-up">
+                    <span class="pixel-label">FULL STACK • FRONT-END • BACK-END • DATA</span>
+
                     <h1 class="hero-title">Lucas Gabriel</h1>
-                    <h2 class="hero-role">Desenvolvedor de Sistemas & Analista de Dados</h2>
+
+                    <h2 class="hero-role">
+                        Desenvolvedor Full Stack | Sistemas, Dados e Experiências Web
+                    </h2>
+
                     <p class="hero-subtitle">
-                        Soluções digitais simples e de alta performance. Transformo problemas complexos do seu negócio em resultados reais.
+                        Crio soluções digitais modernas, funcionais e estratégicas — desde landing pages e interfaces front-end até sistemas, automações, APIs e projetos com banco de dados.
                     </p>
+
+                    <div class="typing-box">
+                        <span class="typing-prefix">&gt;</span>
+                        <span id="typing-text"></span>
+                    </div>
+
                     <div class="hero-buttons">
-                        <a href="#planos" class="btn-primary">Ver Planos e Valores</a>
-                        <a href="#projetos" class="btn-link">Ver meu portfólio <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="#projetos" class="btn-primary">Ver Projetos</a>
+                        <a href="#servicos" class="btn-link">
+                            Solicitar orçamento <i class="fa-solid fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
-                <!-- FOTO COLORIDA COM BORDAS ARREDONDADAS -->
+
                 <div class="hero-image fade-up delay-1">
-                    <div class="image-wrapper">
-                        <img src="Foto_perfil_port.jpeg" alt="Lucas Gabriel" onerror="this.src='https://via.placeholder.com/400x500/111/333'">
+                    <div class="image-wrapper dev-photo">
+                        <img src="Foto_perfil_port.jpeg" alt="Lucas Gabriel">
                     </div>
                 </div>
+
             </div>
         </section>
 
-        <!-- SOBRE MIM -->
+        <!-- SOBRE -->
         <section id="sobre" class="section">
             <div class="container fade-up">
-                <div class="sobre-card">
-                    <h2 class="section-title">Sobre Mim</h2>
-                    <p class="text-muted">
-                        🎯 Meu objetivo principal é <strong>melhorar a sua comunicação com seus clientes</strong> e alavancar seus resultados através da tecnologia. Sou focado em entregar código limpo, interfaces modernas e infraestrutura robusta na nuvem.
-                    </p>
-                    <div class="tech-tags">
-                        <span><i class="fa-brands fa-python"></i> Python</span>
-                        <span><i class="fa-brands fa-js"></i> JavaScript</span>
-                        <span><i class="fa-solid fa-database"></i> PostgreSQL</span>
-                        <span><i class="fa-brands fa-microsoft"></i> Azure</span>
-                        <span><i class="fa-brands fa-figma"></i> Figma</span>
+                <div class="sobre-card sobre-grid">
+
+                    <div>
+                        <span class="pixel-label">SOBRE MIM</span>
+                        <h2 class="section-title">
+                            Tecnologia, design e sistemas com propósito.
+                        </h2>
                     </div>
+
+                    <div>
+                        <p class="text-muted">
+                            Me chamo <strong>Lucas Gabriel</strong>, tenho <strong>23 anos</strong> e sou apaixonado por tecnologia, desenvolvimento de sistemas e soluções digitais que realmente geram resultado.
+                        </p>
+
+                        <p class="text-muted">
+                            Estou desenvolvendo projetos há <strong>3 anos</strong>, atuando com <strong>front-end, back-end, banco de dados e análise de dados</strong>. Gosto de transformar ideias em produtos digitais bem estruturados, com visual moderno, experiência fluida e código organizado.
+                        </p>
+
+                        <p class="text-muted">
+                            Ao longo da minha trajetória, já desenvolvi projetos para nichos como odontologia, psicologia, consultoria, barbearia, automação, análise de dados e experiências digitais interativas.
+                        </p>
+                    </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- DORES E SOLUÇÕES (CARROSSEL) -->
+        <!-- NÚMEROS -->
+        <section class="section stats-section">
+            <div class="container">
+                <div class="stats-grid fade-up">
+
+                    <div class="stat-card">
+                        <h3>25+</h3>
+                        <p>Projetos concluídos</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <h3>3</h3>
+                        <p>Anos desenvolvendo sistemas</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <h3>Full Stack</h3>
+                        <p>Front-End, Back-End e Dados</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <h3>SQL</h3>
+                        <p>Banco de dados e consultas</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- STACK -->
+        <section id="stack" class="section">
+            <div class="container">
+
+                <div class="section-header fade-up">
+                    <span class="pixel-label">STACK TÉCNICA</span>
+                    <h2 class="section-title text-center">
+                        Linguagens, tecnologias e bibliotecas que já utilizei
+                    </h2>
+                    <p class="section-subtitle text-muted">
+                        Um conjunto de ferramentas usadas em projetos de front-end, back-end, dados, automação e sistemas.
+                    </p>
+                </div>
+
+                <div class="stack-columns">
+
+                    <div class="stack-card fade-up">
+                        <h3><i class="fa-solid fa-code"></i> Linguagens</h3>
+
+                        <div class="stack-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                            <span>Python</span>
+                            <span>SQL</span>
+                            <span>Dart</span>
+                            <span>C</span>
+                        </div>
+                    </div>
+
+                    <div class="stack-card fade-up delay-1">
+                        <h3><i class="fa-solid fa-layer-group"></i> Tecnologias</h3>
+
+                        <div class="stack-tags">
+                            <span>Flask</span>
+                            <span>Django</span>
+                            <span>Flutter</span>
+                            <span>PostgreSQL</span>
+                            <span>MySQL</span>
+                            <span>SQLite</span>
+                            <span>Docker</span>
+                            <span>Azure</span>
+                            <span>Git/GitHub</span>
+                            <span>Linux</span>
+                            <span>Power BI</span>
+                        </div>
+                    </div>
+
+                    <div class="stack-card fade-up delay-2">
+                        <h3><i class="fa-solid fa-cubes"></i> Bibliotecas e recursos</h3>
+
+                        <div class="stack-tags">
+                            <span>Pandas</span>
+                            <span>Plotly</span>
+                            <span>Scikit-learn</span>
+                            <span>Bootstrap</span>
+                            <span>GSAP</span>
+                            <span>ScrollTrigger</span>
+                            <span>Font Awesome</span>
+                            <span>IntersectionObserver</span>
+                            <span>APIs REST</span>
+                            <span>JSON</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- O QUE EU CONSTRUO -->
         <section id="problemas" class="section full-width-section">
             <div class="container">
                 <h2 class="section-title text-center fade-up">O que eu construo para você</h2>
-                <p class="section-subtitle fade-up text-muted">O impacto de ter (ou não) uma presença digital forte.</p>
+                <p class="section-subtitle fade-up text-muted">
+                    Soluções digitais para negócios que precisam vender melhor, automatizar processos e transmitir mais autoridade.
+                </p>
             </div>
-            
-            <!-- Carrossel de Dores (Esquerda) -->
+
             <div class="marquee-wrapper">
                 <div class="marquee marquee-left">
+
                     <div class="card card-dor">
-                        <div class="icon-box"><i class="fa-solid fa-eye-slash"></i></div>
-                        <h3>Invisibilidade Digital</h3>
-                        <p class="text-muted">Se você não tem uma Landing Page, seu concorrente leva a venda no Google.</p>
+                        <div class="icon-box"><i class="fa-solid fa-window-maximize"></i></div>
+                        <h3>Landing Pages</h3>
+                        <p class="text-muted">Páginas modernas com foco em conversão, WhatsApp e captação de clientes.</p>
                     </div>
+
                     <div class="card card-dor">
-                        <div class="icon-box"><i class="fa-solid fa-users-slash"></i></div>
-                        <h3>Perda de Credibilidade</h3>
-                        <p class="text-muted">Sem um site profissional, novos clientes sentem insegurança em comprar de você.</p>
+                        <div class="icon-box"><i class="fa-solid fa-database"></i></div>
+                        <h3>Sistemas Web</h3>
+                        <p class="text-muted">Soluções com banco de dados, painel administrativo e regras de negócio.</p>
                     </div>
+
                     <div class="card card-dor">
-                        <div class="icon-box"><i class="fa-solid fa-hourglass-half"></i></div>
-                        <h3>Perda de Tempo</h3>
-                        <p class="text-muted">Responder as mesmas dúvidas de preços no WhatsApp consome suas horas preciosas.</p>
+                        <div class="icon-box"><i class="fa-solid fa-chart-line"></i></div>
+                        <h3>Dados e Dashboards</h3>
+                        <p class="text-muted">Análises, indicadores e visualizações para apoiar decisões com dados.</p>
                     </div>
-                    <!-- Clones JS -->
-                    <div class="card card-dor" aria-hidden="true">
-                        <div class="icon-box"><i class="fa-solid fa-eye-slash"></i></div>
-                        <h3>Invisibilidade Digital</h3>
-                        <p class="text-muted">Se você não tem uma Landing Page, seu concorrente leva a venda no Google.</p>
+
+                    <div class="card card-dor">
+                        <div class="icon-box"><i class="fa-solid fa-robot"></i></div>
+                        <h3>Automações</h3>
+                        <p class="text-muted">Processos mais rápidos, menos tarefas repetitivas e mais controle operacional.</p>
                     </div>
-                    <div class="card card-dor" aria-hidden="true">
-                        <div class="icon-box"><i class="fa-solid fa-users-slash"></i></div>
-                        <h3>Perda de Credibilidade</h3>
-                        <p class="text-muted">Sem um site profissional, novos clientes sentem insegurança em comprar de você.</p>
-                    </div>
-                    <div class="card card-dor" aria-hidden="true">
-                        <div class="icon-box"><i class="fa-solid fa-hourglass-half"></i></div>
-                        <h3>Perda de Tempo</h3>
-                        <p class="text-muted">Responder as mesmas dúvidas de preços no WhatsApp consome suas horas preciosas.</p>
-                    </div>
+
                 </div>
             </div>
 
-            <!-- Carrossel de Soluções (Direita) -->
             <div class="marquee-wrapper mt-4">
                 <div class="marquee marquee-right">
+
                     <div class="card card-solucao">
-                        <div class="icon-box"><i class="fa-solid fa-clock"></i></div>
-                        <h3>Vendedor 24 Horas</h3>
-                        <p class="text-muted">Sua Landing Page capta leads e fecha vendas enquanto você dorme.</p>
+                        <div class="icon-box"><i class="fa-solid fa-bolt"></i></div>
+                        <h3>Performance</h3>
+                        <p class="text-muted">Projetos leves, rápidos e pensados para boa experiência em qualquer tela.</p>
                     </div>
+
                     <div class="card card-solucao">
-                        <div class="icon-box"><i class="fa-solid fa-shield-halved"></i></div>
-                        <h3>Autoridade Imediata</h3>
-                        <p class="text-muted">Um design imersivo eleva o nível da sua marca e elimina a concorrência por preço.</p>
+                        <div class="icon-box"><i class="fa-solid fa-palette"></i></div>
+                        <h3>UI Moderna</h3>
+                        <p class="text-muted">Interfaces com visual profissional, identidade clara e sem poluição visual.</p>
                     </div>
+
                     <div class="card card-solucao">
-                        <div class="icon-box"><i class="fa-solid fa-robot"></i></div>
-                        <h3>Escala e Automação</h3>
-                        <p class="text-muted">Chatbots e Sistemas integrados que escalam suas vendas sem esforço manual.</p>
+                        <div class="icon-box"><i class="fa-solid fa-code-branch"></i></div>
+                        <h3>Organização Técnica</h3>
+                        <p class="text-muted">Código organizado, estrutura limpa e facilidade para evolução do projeto.</p>
                     </div>
-                    <!-- Clones JS -->
-                    <div class="card card-solucao" aria-hidden="true">
-                        <div class="icon-box"><i class="fa-solid fa-clock"></i></div>
-                        <h3>Vendedor 24 Horas</h3>
-                        <p class="text-muted">Sua Landing Page capta leads e fecha vendas enquanto você dorme.</p>
+
+                    <div class="card card-solucao">
+                        <div class="icon-box"><i class="fa-solid fa-mobile-screen"></i></div>
+                        <h3>Responsividade</h3>
+                        <p class="text-muted">Layout adaptado para computador, tablet e celular.</p>
                     </div>
-                    <div class="card card-solucao" aria-hidden="true">
-                        <div class="icon-box"><i class="fa-solid fa-shield-halved"></i></div>
-                        <h3>Autoridade Imediata</h3>
-                        <p class="text-muted">Um design imersivo eleva o nível da sua marca e elimina a concorrência por preço.</p>
-                    </div>
-                    <div class="card card-solucao" aria-hidden="true">
-                        <div class="icon-box"><i class="fa-solid fa-robot"></i></div>
-                        <h3>Escala e Automação</h3>
-                        <p class="text-muted">Chatbots e Sistemas integrados que escalam suas vendas sem esforço manual.</p>
-                    </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- PROCESSO HORIZONTAL (VERTICAL NO MOBILE) -->
+        <!-- PROCESSO -->
         <section id="processo" class="section">
             <div class="container fade-up">
+
                 <h2 class="section-title text-center">Como eu trabalho</h2>
-                <p class="section-subtitle text-center text-muted">Do primeiro contato ao projeto no ar.</p>
+
+                <p class="section-subtitle text-center text-muted">
+                    Do primeiro contato ao projeto no ar.
+                </p>
 
                 <div class="process-horizontal">
+
                     <div class="process-step">
                         <div class="step-number">01</div>
                         <h3>Alinhamento</h3>
-                        <p class="text-muted">Reunião para definir design, funções e valores.</p>
+                        <p class="text-muted">Entendo sua ideia, necessidade, objetivo e tipo de projeto.</p>
                     </div>
+
                     <i class="fa-solid fa-arrow-right process-arrow"></i>
-                    
+
                     <div class="process-step">
                         <div class="step-number">02</div>
-                        <h3>Contrato</h3>
-                        <p class="text-muted">Envio do escopo fechado e segurança mútua.</p>
+                        <h3>Proposta</h3>
+                        <p class="text-muted">Defino escopo, prazo, valor e funcionalidades principais.</p>
                     </div>
+
                     <i class="fa-solid fa-arrow-right process-arrow"></i>
 
                     <div class="process-step">
                         <div class="step-number">03</div>
-                        <h3>Criação</h3>
-                        <p class="text-muted">Desenvolvimento ágil, de 1 a 2 dias.</p>
+                        <h3>Design</h3>
+                        <p class="text-muted">Crio a estrutura visual com foco em clareza e experiência.</p>
                     </div>
+
                     <i class="fa-solid fa-arrow-right process-arrow"></i>
 
                     <div class="process-step">
                         <div class="step-number">04</div>
-                        <h3>Testes</h3>
-                        <p class="text-muted">Validação de links, responsividade e layout.</p>
+                        <h3>Desenvolvimento</h3>
+                        <p class="text-muted">Transformo o projeto em código funcional e responsivo.</p>
                     </div>
+
                     <i class="fa-solid fa-arrow-right process-arrow"></i>
 
                     <div class="process-step">
                         <div class="step-number">05</div>
                         <h3>Entrega</h3>
-                        <p class="text-muted">Hospedagem, domínio e seu sistema 100% no ar.</p>
+                        <p class="text-muted">Realizo testes, ajustes finais e publicação do projeto.</p>
                     </div>
+
                 </div>
+
             </div>
         </section>
 
-        <!-- PROJETOS AGORA VÊM ANTES DOS PLANOS -->
+        <!-- PROJETOS -->
         <section id="projetos" class="section">
-            <div class="container">
-                <h2 class="section-title fade-up">Projetos de Alta Performance</h2>
-                <p class="section-subtitle fade-up text-muted" style="text-align: left;">Sistemas desenvolvidos com arquitetura limpa e UI moderna.</p>
-                
-                <div class="projects-grid" id="projects-container">
-                    <!-- Gerados via JavaScript -->
+    <div class="container">
+
+        <div class="section-header fade-up">
+            <span class="pixel-label">PORTFÓLIO</span>
+            <h2 class="section-title">Projetos desenvolvidos</h2>
+            <p class="section-subtitle text-muted" style="text-align:left;">
+                Projetos separados por área para facilitar a leitura de recrutadores e clientes.
+            </p>
+        </div>
+
+        <!-- PROJETOS FRONT-END -->
+        <div class="project-block fade-up">
+            <div class="project-block-header">
+                <div>
+                    <span class="pixel-label">FRONT-END</span>
+                    <h3>Landing Pages, interfaces e experiências visuais</h3>
                 </div>
+
+                <p class="text-muted">
+                    Interfaces modernas, responsivas e pensadas para posicionamento, conversão e experiência do usuário.
+                </p>
             </div>
-        </section>
 
-        <!-- PLANOS E PREÇOS NO FINAL -->
-        <section id="planos" class="section">
+            <div class="projects-grid-static" id="frontend-projects">
+                <!-- Projetos Front-End carregados pelo JavaScript -->
+            </div>
+        </div>
+
+        <!-- PROJETOS BACK-END -->
+        <div class="project-block fade-up">
+            <div class="project-block-header">
+                <div>
+                    <span class="pixel-label">BACK-END / SISTEMAS</span>
+                    <h3>Sistemas, APIs, automações e dados</h3>
+                </div>
+
+                <p class="text-muted">
+                    Soluções com regras de negócio, banco de dados, autenticação, integrações e estrutura para operação real.
+                </p>
+            </div>
+
+            <div class="projects-grid-static" id="backend-projects">
+                <!-- Projetos Back-End carregados pelo JavaScript -->
+            </div>
+        </div>
+
+    </div>
+</section>
+
+        <!-- SERVIÇOS -->
+        <section id="servicos" class="section">
             <div class="container">
-                <h2 class="section-title text-center fade-up">Investimento</h2>
-                <p class="section-subtitle fade-up text-muted">Transparência total. Modelos de negócios claros para sua empresa.</p>
 
-                <div class="grid-cards">
-                    <div class="card card-student fade-up">
-                        <span class="badge">Exclusivo Universitários</span>
-                        <h3>Plano Estudante</h3>
-                        <div class="price">R$ 150</div>
-                        <p class="text-muted">Landing Page para alavancar seu início de carreira.</p>
-                        <ul class="features">
-                            <li><i class="fa-solid fa-check"></i> Carteirinha / Histórico</li>
-                            <li><i class="fa-solid fa-check"></i> Último ano ou Concluído</li>
-                            <li><i class="fa-solid fa-check"></i> Design Responsivo</li>
-                        </ul>
-                        <a href="https://wa.me/5511978730908?text=Olá%20Lucas!%20Gostaria%20de%20um%20plano%20para%20estudante." target="_blank" class="btn-student">Solicitar Plano</a>
-                    </div>
+                <div class="section-header fade-up">
+                    <span class="pixel-label">FREELANCER</span>
+                    <h2 class="section-title text-center">Serviços e valores iniciais</h2>
+                    <p class="section-subtitle text-muted">
+                        Soluções digitais para profissionais, marcas e empresas que precisam vender melhor, organizar processos ou ganhar presença online.
+                    </p>
+                </div>
 
-                    <div class="card fade-up delay-1">
+                <div class="grid-cards services-grid">
+
+                    <div class="card service-card fade-up">
                         <h3>Landing Page</h3>
-                        <div class="price">R$ 350</div>
-                        <p class="text-muted">Ideal para captação de leads e vendas diretas.</p>
-                        <ul class="features">
-                            <li><i class="fa-solid fa-check"></i> Alta Conversão</li>
-                            <li><i class="fa-solid fa-check"></i> Até 3x no cartão</li>
-                            <li><i class="fa-solid fa-check"></i> 6 Meses de Suporte</li>
-                        </ul>
-                        <a href="https://wa.me/5511978730908?text=Olá%20Lucas!%20Gostaria%20de%20fazer%20uma%20Landing%20Page." target="_blank" class="btn-outline">Quero este plano</a>
+                        <div class="price"><span>A partir de</span> R$ 450</div>
+                        <p class="text-muted">
+                            Página estratégica para apresentar serviços, captar leads e direcionar clientes para o WhatsApp.
+                        </p>
+                        <a href="https://wa.me/5511978730908?text=Olá%20Lucas!%20Quero%20uma%20Landing%20Page." target="_blank" class="btn-outline">
+                            Solicitar orçamento
+                        </a>
                     </div>
 
-                    <div class="card fade-up delay-2">
-                        <h3>Sistemas / Gestão</h3>
-                        <div class="price"><span>A partir de</span> R$ 1.200</div>
-                        <p class="text-muted">Para controle total da sua empresa e processos.</p>
-                        <ul class="features">
-                            <li><i class="fa-solid fa-check"></i> Banco de Dados</li>
-                            <li><i class="fa-solid fa-check"></i> Painel Administrativo</li>
-                            <li><i class="fa-solid fa-check"></i> 6 Meses de Suporte</li>
-                        </ul>
-                        <a href="https://wa.me/5511978730908?text=Olá%20Lucas!%20Gostaria%20de%20fazer%20um%20orçamento%20de%20sistema%20de%20gestão." target="_blank" class="btn-outline">Quero este plano</a>
+                    <div class="card service-card fade-up delay-1">
+                        <h3>Site Institucional</h3>
+                        <div class="price"><span>A partir de</span> R$ 650</div>
+                        <p class="text-muted">
+                            Site completo para empresas e profissionais que querem transmitir autoridade e profissionalismo.
+                        </p>
+                        <a href="https://wa.me/5511978730908?text=Olá%20Lucas!%20Quero%20um%20site%20institucional." target="_blank" class="btn-outline">
+                            Solicitar orçamento
+                        </a>
                     </div>
+
+                    <div class="card service-card fade-up delay-2">
+                        <h3>Sistema Web</h3>
+                        <div class="price"><span>A partir de</span> R$ 1.200</div>
+                        <p class="text-muted">
+                            Sistemas com painel, banco de dados, autenticação, regras de negócio e funcionalidades sob medida.
+                        </p>
+                        <a href="https://wa.me/5511978730908?text=Olá%20Lucas!%20Quero%20um%20sistema%20web." target="_blank" class="btn-outline">
+                            Solicitar orçamento
+                        </a>
+                    </div>
+
+                    <div class="card service-card fade-up">
+                        <h3>Dashboard / Dados</h3>
+                        <div class="price"><span>A partir de</span> R$ 400</div>
+                        <p class="text-muted">
+                            Organização, análise e visualização de dados para acompanhar indicadores e tomar decisões.
+                        </p>
+                        <a href="https://wa.me/5511978730908?text=Olá%20Lucas!%20Quero%20um%20dashboard%20ou%20análise%20de%20dados." target="_blank" class="btn-outline">
+                            Solicitar orçamento
+                        </a>
+                    </div>
+
+                    <div class="card service-card fade-up delay-1">
+                        <h3>Manutenção Mensal</h3>
+                        <div class="price"><span>A partir de</span> R$ 225/mês</div>
+                        <p class="text-muted">
+                            Ajustes, melhorias, troca de informações, suporte e acompanhamento do projeto após a entrega.
+                        </p>
+                        <a href="https://wa.me/5511978730908?text=Olá%20Lucas!%20Quero%20saber%20sobre%20manutenção%20mensal." target="_blank" class="btn-outline">
+                            Solicitar orçamento
+                        </a>
+                    </div>
+
+                    <div class="card service-card fade-up delay-2">
+                        <h3>Automação / API</h3>
+                        <div class="price"><span>Sob</span> orçamento</div>
+                        <p class="text-muted">
+                            Integrações, automações, conexão com sistemas externos e criação de fluxos personalizados.
+                        </p>
+                        <a href="https://wa.me/5511978730908?text=Olá%20Lucas!%20Quero%20uma%20automação%20ou%20API." target="_blank" class="btn-outline">
+                            Solicitar orçamento
+                        </a>
+                    </div>
+
                 </div>
+
             </div>
         </section>
+
+        <!-- CURRÍCULO -->
+       <section id="curriculo" class="section curriculum-section">
+    <div class="container fade-up">
+
+        <div class="curriculum-card">
+            <span class="pixel-label">CURRÍCULO</span>
+
+            <h2>Quer conhecer melhor minha trajetória?</h2>
+
+            <p class="text-muted">
+                Baixe meu currículo em PDF ou acesse meus canais profissionais.
+            </p>
+
+            <a href="Cv.dev.LucasGabriel.pdf" download class="btn-download">
+                <i class="fa-solid fa-file-arrow-down"></i>
+                Baixar Currículo em PDF
+            </a>
+
+            <div class="social-links">
+                <a href="https://www.instagram.com/dev.lucasg/" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-instagram"></i>
+                    Instagram
+                </a>
+
+                <a href="https://www.linkedin.com/in/lucas-gabriel-8a1a8b172" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-linkedin"></i>
+                    LinkedIn
+                </a>
+
+                <a href="https://github.com/LucasGabriel0901" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-github"></i>
+                    GitHub
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>
 
     </main>
 
-    <!-- RODAPÉ COMPLETO -->
+    <!-- FOOTER -->
     <footer class="footer text-center">
         <div class="container">
             <h2 class="logo-footer">lucas<span>.Gabriel</span></h2>
-            <p class="text-muted">&copy; 2026 Lucas Gabriel. Todos os direitos reservados. Desenvolvedor de Sistemas.</p>
+            <p class="text-muted">
+                &copy; 2026 Lucas Gabriel. Todos os direitos reservados.
+            </p>
         </div>
     </footer>
 
-    <!-- WIDGET DO CHATBOT WHATSAPP -->
+    <!-- WIDGET WHATSAPP -->
     <div id="whatsapp-widget" class="wa-widget fade-up delay-2">
-        <div class="wa-button"><i class="fa-brands fa-whatsapp"></i></div>
+
+        <div class="wa-button">
+            <i class="fa-brands fa-whatsapp"></i>
+        </div>
+
         <div class="wa-chat-box">
+
             <div class="wa-header">
                 <div class="wa-avatar">
-                    <img src="Foto_perfil_port.jpeg" alt="Lucas Gabriel" onerror="this.src='https://via.placeholder.com/50'">
+                    <img src="Foto_perfil_port.jpeg" alt="Lucas Gabriel">
                     <span class="wa-status-dot"></span>
                 </div>
+
                 <div class="wa-chat-info">
                     <h4>Lucas Gabriel</h4>
-                    <p>Online (Assistente AI)</p>
+                    <p>Online | Desenvolvedor Full Stack</p>
                 </div>
-                <button id="wa-close"><i class="fa-solid fa-xmark"></i></button>
+
+                <button id="wa-close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
             </div>
+
             <div class="wa-messages" id="wa-messages-container"></div>
+
             <div class="wa-footer">
                 <input type="text" id="wa-input" placeholder="Digite uma opção...">
-                <button id="wa-send"><i class="fa-solid fa-paper-plane"></i></button>
+                <button id="wa-send">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
             </div>
+
         </div>
     </div>
 
-    <!-- MENU MOBILE FLUTUANTE (ESTILO APP) -->
+    <!-- MENU MOBILE -->
     <nav class="mobile-app-nav">
-        <a href="#hero" class="app-nav-item"><i class="fa-solid fa-house"></i><span>Início</span></a>
-        <a href="#problemas" class="app-nav-item"><i class="fa-solid fa-layer-group"></i><span>Serviços</span></a>
-        <a href="#projetos" class="app-nav-item"><i class="fa-solid fa-code"></i><span>Projetos</span></a>
-        <a href="#planos" class="app-nav-item"><i class="fa-solid fa-tag"></i><span>Planos</span></a>
+        <a href="#hero" class="app-nav-item">
+            <i class="fa-solid fa-house"></i>
+            <span>Início</span>
+        </a>
+
+        <a href="#stack" class="app-nav-item">
+            <i class="fa-solid fa-layer-group"></i>
+            <span>Stack</span>
+        </a>
+
+        <a href="#projetos" class="app-nav-item">
+            <i class="fa-solid fa-code"></i>
+            <span>Projetos</span>
+        </a>
+
+        <a href="#servicos" class="app-nav-item">
+            <i class="fa-solid fa-tag"></i>
+            <span>Serviços</span>
+        </a>
     </nav>
 
+    <!-- JS -->
     <script src="script.js"></script>
 </body>
 </html>
